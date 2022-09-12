@@ -13,6 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(47,41,69);
+  background: linear-gradient(165deg, rgba(47,41,69,1) 0%, rgba(47,47,145,1) 100%);
 }
 
 code {
@@ -21,6 +23,8 @@ code {
 }
 
 .container {
+  background: rgb(47,41,69);
+  background: linear-gradient(165deg, rgba(47,41,69,1) 0%, rgba(47,47,145,1) 100%);
   display: grid; 
   grid-template-columns: 240px 1.7fr 0.8fr; 
   grid-template-rows: 0.2fr 1.8fr; 
@@ -31,19 +35,18 @@ code {
 }
 
 .search { grid-area: search;
-  border:1px solid black;
+  display:flex;
 }
 
 .navbar { grid-area: navbar;
-  border:1px solid black;
 }
 
 .main { grid-area: main; 
-  border:1px solid black;
+
 }
 
 .aside { grid-area: aside; 
-  border:1px solid black;
+
 }
 
 @media only screen and (min-width: 0px) and (max-width: 768px) {
