@@ -49,6 +49,15 @@ code {
 
 }
 
+.menu-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+
 @media only screen and (min-width: 0px) and (max-width: 768px) {
   .container {  display: grid;
     grid-template-columns: 240px 1.4fr 1fr;
@@ -74,6 +83,12 @@ code {
   
 }
 
+
+@media only screen and (min-width: 769px) {
+  .menu-btn{
+    display: none;
+  }
+}
 
 @media only screen and (min-width: 769px) and (max-width: 1200px) {
   .container {  display: grid;
