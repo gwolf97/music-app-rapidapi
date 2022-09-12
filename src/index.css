@@ -20,7 +20,7 @@ code {
 
 .container {
   display: grid; 
-  grid-template-columns: 0.5fr 1.7fr 0.8fr; 
+  grid-template-columns: 240px 1.7fr 0.8fr; 
   grid-template-rows: 0.2fr 1.8fr; 
   gap: 0px 0px; 
   grid-template-areas: 
@@ -46,7 +46,7 @@ code {
 
 @media only screen and (min-width: 0px) and (max-width: 768px) {
   .container {  display: grid;
-    grid-template-columns: 1.3fr 1.4fr 1fr;
+    grid-template-columns: 240px 1.4fr 1fr;
     grid-template-rows: 0.2fr 1.8fr;
     gap: 0px 0px;
     grid-auto-flow: row;
@@ -72,7 +72,7 @@ code {
 
 @media only screen and (min-width: 769px) and (max-width: 1200px) {
   .container {  display: grid;
-    grid-template-columns: 0.7fr 1.3fr 1.4fr;
+    grid-template-columns: 240px 1.3fr 1.4fr;
     grid-template-rows: 0.2fr 1.8fr;
     gap: 0px 0px;
     grid-auto-flow: row;

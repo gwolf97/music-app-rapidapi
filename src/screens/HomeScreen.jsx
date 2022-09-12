@@ -1,5 +1,6 @@
 import React from 'react';
 import {} from '@mui/material';
+import Navbar from "../components/Navbar.jsx"
 
 
 const HomeScreen = () => {
@@ -9,7 +10,7 @@ const HomeScreen = () => {
             Search
         </div>
         <div className="navbar">
-            Navbar
+            <Navbar/>
         </div>
         <div className="main">
             Main
