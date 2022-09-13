@@ -2,6 +2,7 @@ import React from 'react';
 import {Button} from '@mui/material';
 import Navbar from "../components/Navbar.jsx"
 import SearchBar from '../components/SearchBar.jsx';
+import Discover from '../components/Discover.jsx';
 
 const HomeScreen = () => {
   return (
@@ -13,7 +14,7 @@ const HomeScreen = () => {
             <Navbar/>
         </div>
         <div className="main">
-            Main
+            <Discover/>
         </div>
         <div className="aside">
             aside
