@@ -1,9 +1,20 @@
 import React from 'react'
-import { Select, MenuItem } from '@mui/material'
+import { Select, MenuItem, Grid } from '@mui/material'
+import { getTracksByGenere } from '../actions/actions'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Discover = () => {
 
     const [selected, setSelected] = React.useState("POP")
+
+    const dispatch = useDispatch()
+    const {genreTracks} = useSelector(state => state.genre)
+
+    React.useEffect(() => {
+        dispatch(getTracksByGenere(selected))
+    }, [])
+
+    console.log(genreTracks)
 
   return (
     <>
@@ -37,6 +48,9 @@ const Discover = () => {
 
             </Select>
         </div>
+        <Grid container spacing={3}>
+            
+        </Grid>
     </>
   )
 }
