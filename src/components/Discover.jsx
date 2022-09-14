@@ -4,6 +4,7 @@ import { getTracksByGenere } from '../actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import SongCard from './SongCard'
 
+
 const Discover = () => {
 
     const [selected, setSelected] = React.useState("POP")
@@ -11,8 +12,9 @@ const Discover = () => {
     const dispatch = useDispatch()
     const {genreTracks} = useSelector(state => state.genre)
 
+
     React.useEffect(() => {
-        dispatch(getTracksByGenere(selected))
+     dispatch(getTracksByGenere(selected))
     }, [selected])
 
     console.log(genreTracks)
@@ -26,7 +28,7 @@ const Discover = () => {
                 onChange={(e) => setSelected(e.target.value)}
                 style={{width:"200px", height:"35px", backgroundColor:"#191624", color:"#fefefe"}}
                 defaultValue="POP"
-                MenuProps={{style:{ height:"300px"}}}
+                MenuProps={{style:{ height:"300px"}, MenuListProps:{style:{backgroundColor:"#191624", color:"#fefefe"}} }}
             >
                 <MenuItem value="POP">POP</MenuItem>
                 <MenuItem value="HIP_HOP_RAP">HIP_HOP_RAP</MenuItem>
@@ -51,7 +53,7 @@ const Discover = () => {
         </div>
         <Grid container>
             {genreTracks.map(track => (
-                <Grid style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
+                <Grid key={track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
                     <SongCard song={track}/>
                 </Grid>
             ))}

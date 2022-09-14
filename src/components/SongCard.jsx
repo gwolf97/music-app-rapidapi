@@ -49,8 +49,8 @@ const handlePlay = () => {
           fontWeight:"700",
           fontSize:"16px", 
           display: "-webkit-box",
-                  "-webkit-line-clamp": "1",
-                   "-webkit-box-orient": "vertical",
+                  "WebkitLineClamp": "1",
+                   "WebkitBoxOrient": "vertical",
            overflow:"hidden"}}
         >
             <Link to={`/song/${songId}`} className={"song-title-link"}> 
@@ -63,8 +63,8 @@ const handlePlay = () => {
           fontWeight:"700",
           fontSize:"14px", 
           display:  "-webkit-box",
-                    "-webkit-line-clamp": "1",
-                    "-webkit-box-orient": "vertical",
+                    "WebkitLineClamp": "1",
+                    "WebkitBoxOrient": "vertical",
           overflow:"hidden"}} >
           
               <Link to={`/artist/${artistId}`} className={"song-title-link"} >

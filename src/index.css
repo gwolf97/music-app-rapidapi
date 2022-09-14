@@ -84,6 +84,11 @@ code {
   color: #be83f6;
 }
 
+fieldset{
+  border: none !important;
+  outline: none !important;
+}
+
 
 
 
