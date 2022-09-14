@@ -13,7 +13,7 @@ const HomeScreen = () => {
         <div className="navbar">
             <Navbar/>
         </div>
-        <div className="main">
+        <div style={{overflow:"scroll"}} className="main">
             <Discover/>
         </div>
         <div className="aside">

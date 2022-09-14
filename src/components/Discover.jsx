@@ -2,6 +2,7 @@ import React from 'react'
 import { Select, MenuItem, Grid } from '@mui/material'
 import { getTracksByGenere } from '../actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
+import SongCard from './SongCard'
 
 const Discover = () => {
 
@@ -12,13 +13,13 @@ const Discover = () => {
 
     React.useEffect(() => {
         dispatch(getTracksByGenere(selected))
-    }, [])
+    }, [selected])
 
     console.log(genreTracks)
 
   return (
     <>
-        <div style={{backgroundColor:"#4b4088", padding:"0 20px", display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", borderBottomLeftRadius:"10px", borderBottomRightRadius:"10px", height:"60px"}}>
+        <div className='discover-bg'>
             <h3 style={{ color:"#fefefe", fontSize:"30px", fontFamily:"Robot, sans-serif", fontWeight:"700"}}>Discover</h3>
             <Select
                 value={selected}
@@ -48,8 +49,12 @@ const Discover = () => {
 
             </Select>
         </div>
-        <Grid container spacing={3}>
-            
+        <Grid container>
+            {genreTracks.map(track => (
+                <Grid style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
+                    <SongCard song={track}/>
+                </Grid>
+            ))}
         </Grid>
     </>
   )

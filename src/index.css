@@ -15,6 +15,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: rgb(47,41,69);
   background: linear-gradient(165deg, rgba(47,41,69,1) 0%, rgba(47,47,145,1) 100%);
+  background-repeat: no-repeat;
+  height: 110vw;
+  overflow: hidden;
 }
 
 code {
@@ -42,7 +45,11 @@ code {
 }
 
 .main { grid-area: main; 
+  overflow: scroll;
+}
 
+.main::-webkit-scrollbar {
+  display: none;
 }
 
 .aside { grid-area: aside; 
@@ -55,6 +62,28 @@ code {
   align-items: center;
   height: 100%;
 }
+
+.discover-bg{
+  background-color:#4b4088; 
+  padding:0 20px; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  width:100%; 
+  border-bottom-left-radius:10px; 
+  border-bottom-right-radius:10px; 
+  height:60px;
+}
+
+.song-title-link{
+  text-decoration:none;
+  color:#fefefe; 
+}
+
+.song-title-link:hover{
+  color: #be83f6;
+}
+
 
 
 
@@ -89,6 +118,7 @@ code {
     display: none;
   }
 }
+
 
 @media only screen and (min-width: 769px) and (max-width: 1200px) {
   .container {  display: grid;
