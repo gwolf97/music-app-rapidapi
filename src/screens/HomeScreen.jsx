@@ -3,6 +3,7 @@ import {Button} from '@mui/material';
 import Navbar from "../components/Navbar.jsx"
 import SearchBar from '../components/SearchBar.jsx';
 import Discover from '../components/Discover.jsx';
+import Aside from '../components/Aside.jsx';
 
 const HomeScreen = () => {
   return (
@@ -17,7 +18,7 @@ const HomeScreen = () => {
             <Discover/>
         </div>
         <div className="aside">
-            aside
+            <Aside/>
         </div>
     </main>
   )

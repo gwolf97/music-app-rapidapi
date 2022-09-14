@@ -22,7 +22,7 @@ const Discover = () => {
   return (
     <>
         <div className='discover-bg'>
-            <h3 style={{ color:"#fefefe", fontSize:"30px", fontFamily:"Robot, sans-serif", fontWeight:"700"}}>Discover</h3>
+            <h3 style={{ color:"#fefefe", fontSize:"30px", fontFamily:"sans-serif", fontWeight:"700"}}>Discover</h3>
             <Select
                 value={selected}
                 onChange={(e) => setSelected(e.target.value)}
