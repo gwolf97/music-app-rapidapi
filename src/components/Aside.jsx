@@ -16,12 +16,16 @@ const handlePlay = (songPreviewLink) => {
     <>
     <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"10px 10px 5px 10px"}}>
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Charts</h3>
-        <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>See More</p>
+        <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>
+        <Link to={`/toptracks`} className={"see-more"}> 
+                See More 
+        </Link>      
+        </p>
     </div>
-    <div style={{overflow:"scroll", width:"100%", height:"500px"}}>
+    <div style={{overflow:"scroll", width:"100%", height:"480px"}}>
         {topFiveSongs.map(song => (
             <ul key={`${song.key} aside`}>
-                <li style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"100px", width:"100%"}}>
+                <li style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%"}}>
                     <div style={{width:"100px", display:"flex", justifyContent:"center", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif"}}>
                         {topFiveSongs.indexOf(song) + 1}
                         <img style={{width:"85px", marginLeft:"12px"}} src={song.images.coverart} alt="" />
@@ -63,7 +67,11 @@ const handlePlay = (songPreviewLink) => {
     </div>
     <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"12px 10px 0 10px"}}>
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Artists</h3>
-        <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>See More</p>
+        <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>
+        <Link to={`/topartists`} className={"see-more"}> 
+                See More 
+        </Link>   
+        </p>
     </div>
     <div style={{display:"flex", width:"100%", height:"100px"}}>
         {topFiveSongs.map(song => (
