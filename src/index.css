@@ -56,6 +56,10 @@ code {
 
 }
 
+.aside::-webkit-scrollbar { 
+  display: none; 
+}
+
 .menu-btn{
   display: flex;
   justify-content: center;
@@ -125,6 +129,7 @@ fieldset{
 }
 
 
+
 @media only screen and (min-width: 769px) and (max-width: 1280px) {
   .container {  display: grid;
     grid-template-columns: 240px 1.3fr 1.4fr;
@@ -132,8 +137,8 @@ fieldset{
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "navbar search search"
-      "navbar main main";
+    "navbar search search"
+    "navbar main main";
   }
   
   .navbar { grid-area: navbar; }
@@ -141,7 +146,7 @@ fieldset{
   .search { grid-area: search; }
   
   .main { grid-area: main; }
-
+  
   .aside { grid-area: aside; 
     display: none;
   }

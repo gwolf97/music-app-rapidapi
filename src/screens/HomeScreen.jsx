@@ -17,9 +17,9 @@ const HomeScreen = () => {
         <div style={{overflow:"scroll"}} className="main">
             <Discover/>
         </div>
-        <div className="aside">
+        <divk style={{overflow:"scroll"}} className="aside">
             <Aside/>
-        </div>
+        </divk>
     </main>
   )
 }

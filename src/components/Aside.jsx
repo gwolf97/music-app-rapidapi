@@ -14,7 +14,7 @@ const handlePlay = (songPreviewLink) => {
 
   return (
     <>
-    <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"12px 10px 0 10px"}}>
+    <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"10px 10px 5px 10px"}}>
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Charts</h3>
         <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>See More</p>
     </div>
@@ -65,7 +65,7 @@ const handlePlay = (songPreviewLink) => {
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Artists</h3>
         <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>See More</p>
     </div>
-    <div style={{display:"flex", width:"100%", height:"122px"}}>
+    <div style={{display:"flex", width:"100%", height:"100px"}}>
         {topFiveSongs.map(song => (
             <div style={{display:"flex", flexDirection:"column", width:"60px", alignItems:"center", justifyContent:"center", width:"80px"}}>
                 <Avatar sx={{width:"60px", height:"60px"}} src={song.images.background}/>
