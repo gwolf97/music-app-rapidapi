@@ -17,7 +17,6 @@ const Discover = () => {
      dispatch(getTracksByGenere(selected))
     }, [selected])
 
-    console.log(genreTracks)
 
   return (
     <>
