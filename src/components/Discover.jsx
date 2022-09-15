@@ -3,6 +3,7 @@ import { Select, MenuItem, Grid } from '@mui/material'
 import { getTracksByGenere } from '../actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import SongCard from './SongCard'
+import TopFiveCharts from './TopFiveCharts'
 
 
 const Discover = () => {
@@ -20,6 +21,9 @@ const Discover = () => {
 
   return (
     <>
+        <div className='top-five-container'>
+            <TopFiveCharts/>
+        </div>
         <div className='discover-bg'>
             <h3 style={{ color:"#fefefe", fontSize:"30px", fontFamily:"sans-serif", fontWeight:"700"}}>Discover</h3>
             <Select
@@ -53,7 +57,7 @@ const Discover = () => {
         <Grid container>
             {genreTracks.map(track => (
                 <Grid key={track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
-                    <SongCard song={track}/>
+                    <SongCard topCharts={false} song={track}/>
                 </Grid>
             ))}
         </Grid>

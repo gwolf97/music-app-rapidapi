@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
 import { Link, Button} from 'react-router-dom'
 
-const SongCard = ({song}) => {
+const SongCard = ({song, topCharts}) => {
 
 const [showPlayButton, setShowPlayButton] = React.useState(false)
 
@@ -19,8 +19,10 @@ const handlePlay = () => {
 
   return (
   <Card 
-    style={{margin:"20px 0", borderRadius:"10px", backgroundColor:"transparent"}} sx={{ maxWidth: 300, height: 380}}
-  >
+    style={topCharts 
+      ? {margin:"20px 16px", borderRadius:"10px", backgroundColor:"transparent"}
+      : {margin:"20px 0", borderRadius:"10px", backgroundColor:"transparent"}} sx={{ maxWidth: 300, height: 380}
+    }>
     <CardActionArea
     onClick={handlePlay}
     onMouseEnter={() => setShowPlayButton(true)}
@@ -41,8 +43,10 @@ const handlePlay = () => {
     )}
     </CardActionArea>
     <CardContent 
-      style={{backgroundColor:"#4e4482", color:"#fefefe", borderBottomRightRadius:"10px", borderBottomLeftRadius:"10px", height:"100px"}}
-    >
+      style={topCharts 
+        ? {backgroundColor:"#171320", color:"#fefefe", borderBottomRightRadius:"10px", borderBottomLeftRadius:"10px", height:"80px"} 
+        : {backgroundColor:"#4e4482", color:"#fefefe", borderBottomRightRadius:"10px", borderBottomLeftRadius:"10px", height:"100px"}
+      }>
         <Typography
           style={{
           fontFamily:"Roboto, sans-serif",
