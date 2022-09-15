@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Avatar, Typography } from '@mui/material';
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
@@ -65,8 +65,26 @@ const handlePlay = (songPreviewLink) => {
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Artists</h3>
         <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>See More</p>
     </div>
-    <div style={{border:"1px solid black", width:"100%", height:"122px"}}>
+    <div style={{display:"flex", width:"100%", height:"122px"}}>
+        {topFiveSongs.map(song => (
+            <div style={{display:"flex", flexDirection:"column", width:"60px", alignItems:"center", justifyContent:"center", width:"80px"}}>
+                <Avatar sx={{width:"60px", height:"60px"}} src={song.images.background}/>
+                <Typography                             
+                style={{
+                     fontFamily:"Roboto, sans-serif",
+                     color:"#fefefe",
+                     fontWeight:"700",
+                     fontSize:"12px", 
+                     display:  "-webkit-box",
+                                 "WebkitLineClamp": "1",
+                                 "WebkitBoxOrient": "vertical",
+                     overflow:"hidden"}}
+                     >
+                        {song.subtitle}
+                </Typography>
+            </div>
 
+        ))}
     </div>
     </>
   )
