@@ -18,6 +18,7 @@ function App() {
       <Routes>     
           <Route path="/" element={<HomeScreen discover={true} />}/>
           <Route path="/topcharts/:topcharts" element={<HomeScreen discover={false} />}/>
+          <Route path="/topartists/:artists" element={<HomeScreen discover={false} />}/>
       </Routes>
     </Router>
   );

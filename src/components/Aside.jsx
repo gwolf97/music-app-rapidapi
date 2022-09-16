@@ -76,29 +76,31 @@ const handlePlay = (songPreviewLink) => {
         </Link>   
         </p>
     </div>
-    <div style={{display:"flex", width:"100%", height:"100px"}}>
-        {topFiveSongs.map(song => (
-            <div key={`${song.key} aside artist key`}>
-            <Fade right>
-            <div style={{display:"flex", flexDirection:"column", width:"60px", alignItems:"center", justifyContent:"center", width:"80px"}}>
-                <Avatar sx={{width:"60px", height:"60px"}} src={song.images.background}/>
-                <Typography                             
-                style={{
-                     fontFamily:"Roboto, sans-serif",
-                     color:"#fefefe",
-                     fontWeight:"700",
-                     fontSize:"12px", 
-                     display:  "-webkit-box",
-                                 "WebkitLineClamp": "1",
-                                 "WebkitBoxOrient": "vertical",
-                     overflow:"hidden"}}
-                     >
-                        {song.subtitle}
-                </Typography>
-            </div>
-            </Fade>
-            </div>
-        ))}
+    <div style={{paddingTop:"5px"}} className='sm-charts-scroll'>
+        <div style={{display:"flex", width:"100%", height:"100px"}}>
+            {topFiveSongs.map(song => (
+                <div key={`${song.key} aside artist key`}>
+                <Fade right>
+                <div style={{display:"flex", flexDirection:"column", width:"60px", alignItems:"center", justifyContent:"center", width:"80px"}}>
+                    <Avatar sx={{width:"60px", height:"60px", cursor:"pointer"}} src={song.images.background}/>
+                    <Typography                             
+                    style={{
+                        fontFamily:"Roboto, sans-serif",
+                        color:"#fefefe",
+                        fontWeight:"700",
+                        fontSize:"12px", 
+                        display:  "-webkit-box",
+                                    "WebkitLineClamp": "1",
+                                    "WebkitBoxOrient": "vertical",
+                        overflow:"hidden"}}
+                        >
+                            {song.subtitle}
+                    </Typography>
+                </div>
+                </Fade>
+                </div>
+            ))}
+        </div>
     </div>
     </>
   )

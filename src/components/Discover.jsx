@@ -13,8 +13,6 @@ const Discover = () => {
     const dispatch = useDispatch()
     const {genreTracks} = useSelector(state => state.genre)
 
-    console.log(genreTracks)
-
     React.useEffect(() => {
      dispatch(getTracksByGenere(selected))
     }, [selected])

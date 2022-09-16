@@ -44,7 +44,7 @@ export default function Navbar() {
                 </Link>
             </ListItem>
             <ListItem >
-                <Link to={"/topartists"} className={"nav-link"}>
+                <Link to={"/topartists/:topartists"} className={"nav-link"} style={params.artists === ":topartists" ? {color:"#4bb7d4", cursor:"pointer"} : {cursor:"pointer"}}>
                     <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
                         <i className="fa-solid fa-users"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Top Artists</span> 
                     </p>

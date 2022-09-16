@@ -6,13 +6,11 @@ import Discover from '../components/Discover.jsx';
 import Aside from '../components/Aside.jsx';
 import { useParams } from 'react-router-dom';
 import TopCharts from '../components/TopCharts.jsx';
-import Fade from "react-reveal/Fade"
+import TopArtists from '../components/TopArtists.jsx';
 
 const HomeScreen = ({discover}) => {
 
     const params = useParams()
-
-    console.log(params)
 
   return (
     <main className="container" style={{height:"100vh"}}>
@@ -26,6 +24,7 @@ const HomeScreen = ({discover}) => {
         <div style={{overflow:"scroll"}} className="main">
             {discover && <Discover/>}
             {params.topcharts === ":topcharts" && <TopCharts/>}
+            {params.artists === ":topartists" && <TopArtists/>}
         </div>
         <div style={{overflow:"scroll"}} className="aside">
             <Aside/>
