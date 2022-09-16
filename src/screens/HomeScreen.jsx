@@ -2,11 +2,11 @@ import React from 'react';
 import {Button} from '@mui/material';
 import Navbar from "../components/Navbar.jsx"
 import SearchBar from '../components/SearchBar.jsx';
-import Discover from '../components/Discover.jsx';
+import Discover from './HomeScreen/Discover.jsx';
 import Aside from '../components/Aside.jsx';
 import { useParams } from 'react-router-dom';
-import TopCharts from '../components/TopCharts.jsx';
-import TopArtists from '../components/TopArtists.jsx';
+import TopCharts from './HomeScreen/TopCharts.jsx';
+import TopArtists from './HomeScreen/TopArtists.jsx';
 
 const HomeScreen = ({discover}) => {
 

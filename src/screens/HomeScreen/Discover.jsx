@@ -1,9 +1,9 @@
 import React from 'react'
 import { Select, MenuItem, Grid } from '@mui/material'
-import { getTracksByGenere } from '../actions/actions'
+import { getTracksByGenere } from '../../actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
-import SongCard from './SongCard'
-import TopFiveCharts from './TopFiveCharts'
+import SongCard from '../../components/SongCard'
+import TopFiveCharts from '../../components/TopFiveCharts'
 import Fade from 'react-reveal/Fade';
 
 const Discover = () => {
@@ -18,6 +18,9 @@ const Discover = () => {
     }, [selected])
 
     const filteredList = genreTracks.filter(song => song.images)
+
+    const firstFourSongs = filteredList.slice(0, 4)
+    const remainingSongs = filteredList.slice(4)
 
   return (
     <>
@@ -56,11 +59,16 @@ const Discover = () => {
         </div>
         <div>
             <Grid container>
-                {filteredList.map(track => (
+                {firstFourSongs.map(track => (
                         <Grid key={track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
                             <Fade bottom>
                                 <SongCard topCharts={false} song={track}/>
                             </Fade>
+                        </Grid>
+                ))}
+                {remainingSongs.map(track => (
+                        <Grid key={track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
+                                <SongCard topCharts={false} song={track}/>
                         </Grid>
                 ))}
             </Grid>
