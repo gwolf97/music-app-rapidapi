@@ -148,6 +148,10 @@ fieldset{
     display: none;
   }
 
+  .navbar-open{grid-area: navbar;
+    display: block;
+  }
+
   .aside { grid-area: aside; 
     display: none;
   }

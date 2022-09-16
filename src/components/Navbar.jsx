@@ -9,7 +9,6 @@ export default function Navbar() {
 
     const params = useParams()
 
-    //#4bb7d4
 
   return (
     <>
