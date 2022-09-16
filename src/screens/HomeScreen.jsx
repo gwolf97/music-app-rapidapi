@@ -4,9 +4,16 @@ import Navbar from "../components/Navbar.jsx"
 import SearchBar from '../components/SearchBar.jsx';
 import Discover from '../components/Discover.jsx';
 import Aside from '../components/Aside.jsx';
+import { useParams } from 'react-router-dom';
+import TopCharts from '../components/TopCharts.jsx';
+import Fade from "react-reveal/Fade"
 
+const HomeScreen = ({discover}) => {
 
-const HomeScreen = () => {
+    const params = useParams()
+
+    console.log(params)
+
   return (
     <main className="container" style={{height:"100vh"}}>
         <div className="search">
@@ -17,11 +24,12 @@ const HomeScreen = () => {
             <Navbar/>
         </div>
         <div style={{overflow:"scroll"}} className="main">
-            <Discover/>
+            {discover && <Discover/>}
+            {params.topcharts === ":topcharts" && <TopCharts/>}
         </div>
-        <divk style={{overflow:"scroll"}} className="aside">
+        <div style={{overflow:"scroll"}} className="aside">
             <Aside/>
-        </divk>
+        </div>
     </main>
   )
 }

@@ -14,8 +14,10 @@ const songId = song.key
 const audioSampleLink = song.hub.actions[1].uri
 
 const handlePlay = () => {
-  console.log(audioSampleLink)
+  
 }
+
+
 
   return (
   <Card 

@@ -4,9 +4,9 @@ import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, TOP_CHARTS_FAIL, TOP_CHARTS_R
 export const genreReducer = (state = {genreTracks: []}, action) =>{
     switch(action.type){
        case GENRE_REQUEST:
-           return {loading:true, ...state, genreTracks:[]}
+           return {...state, loading:true, genreTracks:[]}
        case GENRE_SUCCESS:
-           return {loading: false, ...state, genreTracks: action.payload}
+           return {...state, loading: false, genreTracks: action.payload}
        case GENRE_FAIL:
            return {loading: false, error: action.payload}
        default:
@@ -17,11 +17,11 @@ export const genreReducer = (state = {genreTracks: []}, action) =>{
 export const topChartsReducer = (state = {songs: []}, action) =>{
     switch(action.type){
        case TOP_CHARTS_REQUEST:
-           return {loading:true, ...state, songs:[]}
+           return {...state, loading:true, success:false,  songs:[]}
        case TOP_CHARTS_SUCCESS:
-           return {loading: false, ...state, songs: action.payload}
+           return {...state, loading: false, success:true, songs: action.payload}
        case TOP_CHARTS_FAIL:
-           return {loading: false, error: action.payload}
+           return {loading: false, success:false, error: action.payload}
        default:
            return state
     }

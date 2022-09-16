@@ -13,11 +13,13 @@ const Discover = () => {
     const dispatch = useDispatch()
     const {genreTracks} = useSelector(state => state.genre)
 
+    console.log(genreTracks)
 
     React.useEffect(() => {
      dispatch(getTracksByGenere(selected))
     }, [selected])
 
+    const filteredList = genreTracks.filter(song => song.images)
 
   return (
     <>
@@ -56,7 +58,7 @@ const Discover = () => {
         </div>
         <div>
             <Grid container>
-                {genreTracks.map(track => (
+                {filteredList.map(track => (
                         <Grid key={track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
                             <Fade bottom>
                                 <SongCard topCharts={false} song={track}/>

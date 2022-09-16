@@ -2,8 +2,15 @@ import * as React from 'react';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import { ListItem, List } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+
+    const params = useParams()
+
+    //#4bb7d4
+
   return (
     <>
       <Drawer
@@ -23,24 +30,25 @@ export default function Navbar() {
         <Toolbar />
         <List style={{fontFamily: 'Roboto, sans-serif', fontWeight:"500", fontSize:"20px", lineHeight:"40px", marginLeft:"5px"}}>
             <ListItem>
-                <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
-                    <i className="fa-solid fa-house"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Home</span> 
-                </p>
+                <Link to={"/"} className={"nav-link"} style={Object.keys(params).length === 0 ? {color:"#4bb7d4", cursor:"pointer"} : {cursor:"pointer"}}>
+                    <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <i className="fa-solid fa-house"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Home</span> 
+                    </p>
+                </Link>
             </ListItem>
             <ListItem>
-                <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
-                    <i className="fa-solid fa-music"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Genere</span> 
-                </p>
-            </ListItem>
-            <ListItem>
-                <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
-                    <i className="fa-solid fa-globe"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Top Charts</span> 
-                </p>
+                <Link to={"/topcharts/:topcharts"} className={"nav-link"} style={params.topcharts === ":topcharts" ? {color:"#4bb7d4", cursor:"pointer"} : {cursor:"pointer"}}>
+                    <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <i className="fa-solid fa-globe"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Top Charts</span> 
+                    </p>
+                </Link>
             </ListItem>
             <ListItem >
-                <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
-                    <i className="fa-solid fa-users"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Top Artists</span> 
-                </p>
+                <Link to={"/topartists"} className={"nav-link"}>
+                    <p style={{width:"100%",dispay:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <i className="fa-solid fa-users"></i>  <span style={{fontSize:"13px", marginLeft:"5px"}}>Top Artists</span> 
+                    </p>
+                </Link>
             </ListItem>
         </List>
       </Drawer>

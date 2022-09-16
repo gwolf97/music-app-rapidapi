@@ -24,7 +24,9 @@ const topFiveSongs = topCharts.slice(0, 5);
             <div className="sm-charts-scroll">
                 <div style={{display:"flex", flexDirection:"row", overflow:"scroll", width:"105rem"}}>
                         {topFiveSongs.map(song => (
-                            <SongCard topCharts={true} song={song}/>
+                            <div key={`${song.key} this is unique`}>
+                                <SongCard topCharts={true} song={song}/>
+                            </div>
                         ))}
                 </div>
             </div>
@@ -41,6 +43,7 @@ const topFiveSongs = topCharts.slice(0, 5);
         
             <div style={{display:"flex", width:"50rem", height:"250px", justifyContent:"space-between", alignItems:"start", paddingTop:"20px", paddingLeft:"60px"}}>
                 {topFiveSongs.map(song => (
+                    <div key={`${song.key} unique artist`}>
                     <Fade right>
                     <div style={{display:"flex", flexDirection:"column", width:"100px", alignItems:"center", justifyContent:"center", width:"80px", marginRight:"130px"}}>
                                 <Avatar sx={{width:"11rem", height:"11rem", cursor:"pointer"}} src={song.images.background}/>
@@ -57,8 +60,9 @@ const topFiveSongs = topCharts.slice(0, 5);
                             >
                                 {song.subtitle}
                         </Typography>
-            </div>
-            </Fade>
+                    </div>
+                    </Fade>
+                    </div>
             ))}
             </div>
     </div>

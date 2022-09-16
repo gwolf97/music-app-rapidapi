@@ -10,7 +10,7 @@ const topCharts = useSelector(state => state.topCharts.songs)
 const topFiveSongs = topCharts.slice(0, 5);
 
 const handlePlay = (songPreviewLink) => {
-    console.log(songPreviewLink)
+   
 }
 
   return (
@@ -78,6 +78,7 @@ const handlePlay = (songPreviewLink) => {
     </div>
     <div style={{display:"flex", width:"100%", height:"100px"}}>
         {topFiveSongs.map(song => (
+            <div key={`${song.key} aside artist key`}>
             <Fade right>
             <div style={{display:"flex", flexDirection:"column", width:"60px", alignItems:"center", justifyContent:"center", width:"80px"}}>
                 <Avatar sx={{width:"60px", height:"60px"}} src={song.images.background}/>
@@ -96,6 +97,7 @@ const handlePlay = (songPreviewLink) => {
                 </Typography>
             </div>
             </Fade>
+            </div>
         ))}
     </div>
     </>
