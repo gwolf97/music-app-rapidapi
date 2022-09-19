@@ -14,6 +14,10 @@ const TopArtists = () => {
     const firstFourSongs = filteredList.slice(0, 4)
     const remainingSongs = filteredList.slice(4)
 
+    React.useEffect(() => {
+      document.getElementById("main").scrollTo(0, 0)
+    }, [])
+
   return (
     <>
         <div className="discover-bg">

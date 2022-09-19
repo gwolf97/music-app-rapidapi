@@ -12,7 +12,19 @@ const HomeScreen = ({discover}) => {
 
     const [navOpen, setNavOpen] = React.useState(false)
 
+    React.useEffect(() => {
+        function handleResize() {
+          window.innerWidth >= 769 && setNavOpen(false)
+    }
+        window.addEventListener('resize', handleResize)
+      },[])
+
     const params = useParams()
+
+    const  handleClose = () => {
+        setNavOpen(false)
+    }
+
 
   return (
     <main className="container" style={{height:"100vh"}}>
@@ -21,9 +33,9 @@ const HomeScreen = ({discover}) => {
            <SearchBar/>
         </div>
         <div className={navOpen ? "navbar navbar-open" : "navbar"}>
-            <Navbar/>
+            <Navbar handleClose={handleClose} navOpen={navOpen}/>
         </div>
-        <div style={{overflow:"scroll"}} className="main">
+        <div id="main" style={{overflow:"scroll"}} className="main">
             {discover && <Discover/>}
             {params.topcharts === ":topcharts" && <TopCharts/>}
             {params.artists === ":topartists" && <TopArtists/>}

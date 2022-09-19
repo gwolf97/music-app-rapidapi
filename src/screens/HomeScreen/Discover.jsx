@@ -17,6 +17,11 @@ const Discover = () => {
      dispatch(getTracksByGenere(selected))
     }, [selected])
 
+
+    React.useEffect(() => {
+        document.getElementById("main").scrollTo(0, 0)
+      }, [])
+
     const filteredList = genreTracks.filter(song => song.images)
 
     const firstFourSongs = filteredList.slice(0, 4)
