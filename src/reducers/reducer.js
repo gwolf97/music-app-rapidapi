@@ -1,4 +1,4 @@
-import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, TOP_CHARTS_FAIL, TOP_CHARTS_REQUEST, TOP_CHARTS_SUCCESS } from "../constants/constants"
+import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, GET_TRACK_FAIL, GET_TRACK_REQUEST, GET_TRACK_SUCCESS, TOP_CHARTS_FAIL, TOP_CHARTS_REQUEST, TOP_CHARTS_SUCCESS } from "../constants/constants"
 
 
 export const genreReducer = (state = {genreTracks: []}, action) =>{
@@ -21,6 +21,19 @@ export const topChartsReducer = (state = {songs: []}, action) =>{
        case TOP_CHARTS_SUCCESS:
            return {...state, loading: false, success:true, songs: action.payload}
        case TOP_CHARTS_FAIL:
+           return {loading: false, success:false, error: action.payload}
+       default:
+           return state
+    }
+   }
+
+export const getTrackReducer = (state = {song: {}}, action) =>{
+    switch(action.type){
+       case GET_TRACK_REQUEST:
+           return {...state, loading:true, success:false, song: {}}
+       case GET_TRACK_SUCCESS:
+           return {...state, loading: false, success:true, song: action.payload}
+       case GET_TRACK_FAIL:
            return {loading: false, success:false, error: action.payload}
        default:
            return state

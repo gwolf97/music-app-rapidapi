@@ -1,7 +1,7 @@
 import React from 'react';
 import {} from '@mui/material';
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import HomeScreen from './screens/HomeScreen';
+import MainScreen from './screens/MainScreen';
 import { useDispatch } from 'react-redux';
 import { getTopCharts } from './actions/actions';
 
@@ -16,9 +16,10 @@ function App() {
   return (
     <Router>
       <Routes>     
-          <Route path="/" element={<HomeScreen discover={true} />}/>
-          <Route path="/topcharts/:topcharts" element={<HomeScreen discover={false} />}/>
-          <Route path="/topartists/:artists" element={<HomeScreen discover={false} />}/>
+          <Route path="/" element={<MainScreen discover={true} />}/>
+          <Route path="/topcharts/:topcharts" element={<MainScreen discover={false} />}/>
+          <Route path="/topartists/:artists" element={<MainScreen discover={false} />}/>
+          <Route path="/song/:key" element={<MainScreen discover={false} />}/>
       </Routes>
     </Router>
   );
