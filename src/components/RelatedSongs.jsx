@@ -35,12 +35,14 @@ const RelatedSongs = ({songKey}) => {
         Related Songs:
     </Typography>
     {filteredList.map(song => (
-    <div key={`${song.key} related`} style={{margin:"10px 0", padding:"0 10px"}}>
+    <div key={`${song.key} related`} style={{margin:"0px 0", padding:"0 10px"}}>
 
     <li className="track-list-item" style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%",}}>
         <div style={{width:"100%", display:"flex", justifyContent:"start", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif", fontSize:"16px", padding:"10px 40px"}}>
-            {filteredList.indexOf(song) + 1}
-            <img style={{width:"75px", marginLeft:"20px"}} src={song.images.coverart} alt="" />
+            <div style={{width:"20px"}}>
+                {filteredList.indexOf(song) + 1}
+            </div>
+            <img style={{width:"75px", marginLeft:"20px", boxShadow: "0px 0px 10px 1px rgba(0,0,0,1)"}} src={song.images.coverart} alt="" />
         <div style={{width:"20em", marginLeft:"10px"}}>
             <Typography
                 style={{
