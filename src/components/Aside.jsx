@@ -23,11 +23,11 @@ const handlePlay = (songPreviewLink) => {
         </Link>      
         </p>
     </div>
-    <div style={{overflow:"scroll", width:"100%", height:"480px"}}>
+    <ul style={{overflow:"scroll", width:"100%", height:"480px"}}>
         {topFiveSongs.map(song => (
-            <ul key={`${song.key} aside`}>
+            <div key={`${song.key} aside`}>
                 <Fade right>
-                <li style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%"}}>
+                <li className="track-list-item"  style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%"}}>
                     <div style={{width:"100px", display:"flex", justifyContent:"center", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif"}}>
                         {topFiveSongs.indexOf(song) + 1}
                         <img style={{width:"85px", marginLeft:"12px"}} src={song.images.coverart} alt="" />
@@ -65,9 +65,9 @@ const handlePlay = (songPreviewLink) => {
                         <div onClick={handlePlay(song.hub.actions[1].uri)} style={{cursor:"pointer", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
                 </li>
                 </Fade>
-            </ul>
+            </div>
         ))}
-    </div>
+    </ul>
     <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"12px 10px 0 10px"}}>
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Artists</h3>
         <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>

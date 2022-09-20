@@ -27,20 +27,20 @@ const RelatedSongs = ({songKey}) => {
     style={{
         fontFamily:"Roboto, sans-serif",
         color:"#fefefe",
-        fontWeight:"700",
-        fontSize:"25px",
+        fontWeight:"900",
+        fontSize:"28px",
         marginLeft:"30px"
     }}
     >
         Related Songs:
     </Typography>
     {filteredList.map(song => (
-    <div key={`${song.key} related`} style={{margin:"10px 0"}}>
+    <div key={`${song.key} related`} style={{margin:"10px 0", padding:"0 10px"}}>
 
-    <li style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%",}}>
-        <div style={{width:"100%", display:"flex", justifyContent:"start", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif", fontSize:"16px", padding:"0 20px"}}>
+    <li className="track-list-item" style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%",}}>
+        <div style={{width:"100%", display:"flex", justifyContent:"start", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif", fontSize:"16px", padding:"10px 40px"}}>
             {filteredList.indexOf(song) + 1}
-            <img style={{width:"85px", marginLeft:"12px"}} src={song.images.coverart} alt="" />
+            <img style={{width:"75px", marginLeft:"20px"}} src={song.images.coverart} alt="" />
         <div style={{width:"20em", marginLeft:"10px"}}>
             <Typography
                 style={{

@@ -145,6 +145,12 @@ fieldset{
   background-color: #fefefe;
 }
 
+.track-list-item:hover{
+  background-color: #4c426e;  
+  cursor: pointer;
+  border-radius: 10px;
+}
+
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .discover-bg{
