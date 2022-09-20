@@ -162,10 +162,14 @@ fieldset{
 
   .song-avatar-title-container{
     height: 100%;
+    padding-top: 20px;
   }
 
-  .song-details-div{
-    margin: 0;
+
+  .play-btn-song-screen{
+    position: absolute;
+    left: 70vw;
+    background-color: #fefefe;
   }
 
 }
