@@ -24,8 +24,10 @@ const SongScreen = () => {
                                 <SongDetails song={song}/>
                             )}
         </div>
-        <div className="related-songs-container" style={{marginTop:"250px"}}>
-             <RelatedSongs songKey={song.key}/>
+        <div className="related-songs-container" style={{marginTop:"250px", width:"100%", display:"flex", flexDirection:"column", justifyContent:"start" }}>
+             {!loading && success && (
+                <RelatedSongs songKey={song.key}/>
+             )}
         </div>
     </div>
 

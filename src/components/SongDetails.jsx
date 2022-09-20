@@ -43,7 +43,7 @@ const SongDetails = ({song}) => {
             fontWeight:"900",
             fontSize: titleSize, 
             display: "-webkit-box",
-                    "WebkitLineClamp": "4",
+                    "WebkitLineClamp": "6",
                     "WebkitBoxOrient": "vertical",
             }}
             >
