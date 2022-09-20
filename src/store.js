@@ -1,13 +1,14 @@
 import {createStore, combineReducers, applyMiddleware, } from "redux"
 import thunk from "redux-thunk"
 import {composeWithDevTools} from "redux-devtools-extension"
-import { genreReducer, getTrackReducer, topChartsReducer } from "./reducers/reducer"
+import { genreReducer, getRelatedTracksReducer, getTrackReducer, topChartsReducer } from "./reducers/reducer"
 
 
 const reducer = combineReducers({
     genre: genreReducer,
     topCharts: topChartsReducer,
-    track: getTrackReducer
+    track: getTrackReducer,
+    relatedTracks: getRelatedTracksReducer,
 })
 
 const initialState = {

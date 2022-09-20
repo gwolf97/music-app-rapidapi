@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RelatedSongs = () => {
+const RelatedSongs = ({songKey}) => {
   return (
     <div style={{height:"100px"}}>RelatedSongs</div>
   )

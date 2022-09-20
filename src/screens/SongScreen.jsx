@@ -25,7 +25,7 @@ const SongScreen = () => {
                             )}
         </div>
         <div className="related-songs-container" style={{marginTop:"250px"}}>
-             <RelatedSongs/>
+             <RelatedSongs songKey={song.key}/>
         </div>
     </div>
 
