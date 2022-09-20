@@ -140,6 +140,11 @@ fieldset{
   font-family:sans-serif;
 }
 
+.play-btn-song-screen{
+  color: black;
+  background-color: #fefefe;
+}
+
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .discover-bg{
@@ -167,9 +172,11 @@ fieldset{
 
 
   .play-btn-song-screen{
-    position: absolute;
-    left: 70vw;
-    background-color: #fefefe;
+    position: relative;
+    padding: 20px;
+    left: 25vw;
+    color: black;
+    background-color: white;
   }
 
 }
