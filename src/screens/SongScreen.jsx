@@ -7,6 +7,9 @@ import { getTrack } from "../actions/actions"
 
 const SongScreen = () => {
 
+    const [titleSize, setTitleSize] = React.useState("30px")
+    const [avatarSize, setAvatarSize] = React.useState("250px")
+
     const params = useParams()
     const dispatch = useDispatch()
     const {song, loading, success} = useSelector(state => state.track)
@@ -15,6 +18,19 @@ const SongScreen = () => {
         dispatch(getTrack(params.key))
     },[])
 
+    React.useEffect(() => {
+        function handleResize() {
+            window.innerWidth < 769 && setTitleSize("20px")
+            window.innerWidth < 769 && setAvatarSize("200px")
+            window.innerWidth >= 769 && setTitleSize("25px")
+            window.innerWidth >= 769 && setAvatarSize("250px")
+          window.innerWidth >= 1280 && setTitleSize("35px")
+          window.innerWidth >= 1280 && setAvatarSize("300px")
+    }
+        handleResize()
+        window.addEventListener('resize', handleResize)
+      },[])
+
     console.log(song)
 
     const handlePlay = () => {
@@ -22,20 +38,22 @@ const SongScreen = () => {
     }
 
   return (
-    <div style={{paddingTop:"160px", display:"flex", justifyContent:"space-between", alignItems:"center", height:"95px", width:"100%", background: "rgb(0,0,0)", background: "linear-gradient(90deg, rgba(0,0,0,0.5060399159663865) 0%, rgba(0,0,0,0.12228641456582634) 90%, rgba(0,0,0,0) 100%)"}}>
+    <div className="song-details-div">
             {!loading && success && (
                 <>
-                    <div style={{ marginLeft:"180px", width:"100px", display:"flex", justifyContent:"center", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif"}}>
-                        <Avatar style={{margin:"0 20px 0 0", width:"250px", height:"250px", border:"2px solid #FEFEFE", boxShadow: "5px 5px 30px 1px rgba(0,0,0,1)"}} src={song.images.coverart} alt="" />
-                    <div style={{width:"500px", display:"flex", flexDirection:"column", justifyContent:"start"}}>
+                    <div className="song-avatar-title-container" >
+                        <Avatar className={"song-details-avatar"} style={{margin:"0 20px 0 0", width: avatarSize, height: avatarSize, border:"2px solid #FEFEFE", boxShadow: "5px 5px 30px 1px rgba(0,0,0,1)"}} src={song.images.coverart} alt="" />
+                    <div style={{ width:"100%", display:"flex", flexDirection:"column", justifyContent:"start"}}>
                         <Typography
                             style={{
+                            height:"100%",
+                            width:"100%",
                             margin:"-10px 0 5px 0",
                             fontFamily:"'Roboto', sans-serif",
                             fontWeight:"900",
-                            fontSize:"35px", 
+                            fontSize: titleSize, 
                             display: "-webkit-box",
-                                    "WebkitLineClamp": "1",
+                                    "WebkitLineClamp": "4",
                                     "WebkitBoxOrient": "vertical",
                             overflow:"hidden"}}
                             >
