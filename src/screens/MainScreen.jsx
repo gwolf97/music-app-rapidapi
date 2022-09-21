@@ -9,6 +9,7 @@ import TopCharts from './SudoScreens/TopCharts.jsx';
 import TopArtists from './SudoScreens/TopArtists.jsx';
 import SongScreen from './SongScreen.jsx';
 import ArtistScreen from './ArtistScreen.jsx';
+import SearchScreen from './SearchScreen.jsx';
 
 const MainScreen = ({discover}) => {
 
@@ -43,6 +44,7 @@ const MainScreen = ({discover}) => {
             {params.artists === ":topartists" && <TopArtists/>}
             {params.key && <SongScreen /> }
             {params.id && <ArtistScreen /> }
+            {params.search && <SearchScreen /> }
         </div>
         <div style={{overflow:"scroll"}} className="aside">
             <Aside/>

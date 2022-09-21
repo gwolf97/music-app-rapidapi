@@ -21,6 +21,7 @@ function App() {
           <Route path="/topartists/:artists" element={<MainScreen discover={false} />}/>
           <Route path="/song/:key" element={<MainScreen discover={false} />}/>
           <Route path="/artist/:id" element={<MainScreen discover={false} />}/>
+          <Route path="/search/:search" element={<MainScreen discover={false} />}/>
       </Routes>
     </Router>
   );

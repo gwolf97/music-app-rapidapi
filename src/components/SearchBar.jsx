@@ -2,23 +2,29 @@ import React from 'react'
 import { Input } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { search } from '../actions/actions'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const SearchBar = () => {
 
   const [query, setQuery] = React.useState("")
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const params = useParams()
+
+  React.useEffect(() =>{
+    setQuery("")
+  },[navigate, params])
 
   const handleChange = (e) => {
     setQuery(e.target.value.toLowerCase())
   }
 
-  console.log(query)
-
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       console.log('do validate')
       dispatch(search(query))
+      navigate(`/search/${query}`)
       setQuery("")
     }
   }
