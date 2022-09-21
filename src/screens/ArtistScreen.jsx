@@ -12,9 +12,10 @@ const ArtistScreen = () => {
   return (
     <>
     <div className="song-screen-container" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-        Artist Screen
+        <div className="song-details-div">
+                artist details
+        </div>
     </div>
-
     </>
   )
 }
