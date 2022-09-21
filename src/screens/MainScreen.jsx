@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import TopCharts from './SudoScreens/TopCharts.jsx';
 import TopArtists from './SudoScreens/TopArtists.jsx';
 import SongScreen from './SongScreen.jsx';
+import ArtistScreen from './ArtistScreen.jsx';
 
 const MainScreen = ({discover}) => {
 
@@ -41,6 +42,7 @@ const MainScreen = ({discover}) => {
             {params.topcharts === ":topcharts" && <TopCharts/>}
             {params.artists === ":topartists" && <TopArtists/>}
             {params.key && <SongScreen /> }
+            {params.id && <ArtistScreen /> }
         </div>
         <div style={{overflow:"scroll"}} className="aside">
             <Aside/>
