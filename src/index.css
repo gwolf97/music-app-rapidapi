@@ -119,7 +119,7 @@ fieldset{
   display: none;
 }
 
-.song-details-div{
+.details-div{
   padding-top: 160px;
   display: flex;
   justify-content: space-between;
@@ -130,7 +130,7 @@ fieldset{
   background:  linear-gradient(90deg, rgba(0,0,0,0.5060399159663865) 0%, rgba(0,0,0,0.12228641456582634) 90%, rgba(0,0,0,0) 100%);
 }
 
-.song-avatar-title-container{
+.song-avatar-title-container, .artist-avatar-title-container{
   margin-left:20px;
   max-width:77%;
   display:flex;
@@ -167,11 +167,12 @@ fieldset{
 
 @media only screen and (min-width: 0px) and (max-width: 500px) {
 
-  .song-avatar-title-container, .song-details-div{
+  .song-avatar-title-container, .artist-avatar-title-container
+  , .details-div{
     flex-direction: column;
   }
 
-  .song-avatar-title-container{
+  .song-avatar-title-container, .artist-avatar-title-container{
     height: 100%;
     padding-top: 20px;
   }

@@ -19,14 +19,14 @@ const SongScreen = () => {
   return (
     <>
     <div className="song-screen-container" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-        <div className="song-details-div">
+        <div className="details-div">
                 {!loading && success && (
                                 <SongDetails song={song}/>
                             )}
         </div>
         <ul className="related-songs-container" style={{marginTop:"250px", width:"100%", display:"flex", flexDirection:"column", justifyContent:"start" }}>
              {!loading && success && (
-                <RelatedSongs songKey={song.key}/>
+                <RelatedSongs songKey={song.key} />
              )}
         </ul>
     </div>

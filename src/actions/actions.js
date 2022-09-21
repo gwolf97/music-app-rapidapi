@@ -133,7 +133,7 @@ export const getArtistDetails = (artistId) => async (dispatch) =>{
         const options = {
             method: 'GET',
             url: 'https://shazam-core.p.rapidapi.com/v1/artists/details',
-            params: {artist_id: {artistId}},
+            params: {artist_id: `${artistId}`},
             headers: {
               'X-RapidAPI-Key': 'c933348c15mshf224bd49aee5258p1121c9jsn39e8cfa0a0b2',
               'X-RapidAPI-Host': 'shazam-core.p.rapidapi.com'
@@ -142,9 +142,23 @@ export const getArtistDetails = (artistId) => async (dispatch) =>{
 
         const {data} = await axios.request(options)
 
+        const artistName = data.artists[artistId].attributes.name.toLowerCase()
+
+        const options2 = {
+            method: 'GET',
+            url: 'https://shazam-core.p.rapidapi.com/v1/search/multi',
+            params: {offset: '0', query: `${artistName}`, search_type: 'ARTISTS'},
+            headers: {
+              'X-RapidAPI-Key': 'c933348c15mshf224bd49aee5258p1121c9jsn39e8cfa0a0b2',
+              'X-RapidAPI-Host': 'shazam-core.p.rapidapi.com'
+            }
+          };
+
+        const {data: data2} = await axios.request(options2)
+
         dispatch({
             type: GET_ARTIST_DETAILS_SUCCESS,
-            payload: data
+            payload: {data: data, data2: data2}
         })
         
     } catch (error) {

@@ -53,12 +53,12 @@ export const getRelatedTracksReducer = (state = {songs: []}, action) =>{
     }
    }
 
-export const getArtistDetailsReducer = (state = {artist: {}}, action) =>{
+export const getArtistDetailsReducer = (state = {artist: []}, action) =>{
     switch(action.type){
        case GET_ARTIST_DETAILS_REQUEST:
-           return {...state, loading:true, success:false, artist: {}}
+           return {...state, loading:true, success:false, artist: []}
        case GET_ARTIST_DETAILS_SUCCESS:
-           return {...state, loading: false, success:true, artist: action.payload}
+           return {...state, loading: false, success:true, artist: [action.payload.data2.artists.hits[0].artist, action.payload.data]}
        case GET_ARTIST_DETAILS_FAIL:
            return {loading: false, success:false, error: action.payload}
        default:

@@ -10,6 +10,7 @@ const RelatedSongs = ({songKey}) => {
     const relatedSongs = useSelector(state => state.relatedTracks.songs)
 
     const filteredList = relatedSongs.filter(song => song.images)
+    
 
     React.useEffect(() => {
         dispatch(getRelatedTracks(songKey))

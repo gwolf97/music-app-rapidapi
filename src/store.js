@@ -9,7 +9,7 @@ const reducer = combineReducers({
     topCharts: topChartsReducer,
     track: getTrackReducer,
     relatedTracks: getRelatedTracksReducer,
-    artistDetials: getArtistDetailsReducer
+    artistDetails: getArtistDetailsReducer
 })
 
 const initialState = {
