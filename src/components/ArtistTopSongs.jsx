@@ -6,13 +6,9 @@ const ArtistTopSongs = ({artist}) => {
 
     const songs = Object.values(artist[1].songs)
 
-    console.log(songs)
-
     const handlePlay = () => {
         console.log("play")
     }
-
-    console.log()
 
 
   return (
@@ -36,7 +32,7 @@ const ArtistTopSongs = ({artist}) => {
             <div style={{width:"75px", fontSize:"16px"}} >
                 {songs.indexOf(song) + 1}
             </div>
-        <div style={{width:"20em", marginLeft:"-20px"}}>
+        <div style={{width:"20em", marginLeft:"-10px"}}>
             <Typography
                 style={{
                 fontFamily:"Roboto, sans-serif",
@@ -47,9 +43,7 @@ const ArtistTopSongs = ({artist}) => {
                         "WebkitBoxOrient": "vertical",
                 overflow:"hidden"}}
                 >
-                    <Link to={`/song/${song.id}`} className={"song-title-link"}> 
-                    {song.attributes.name}  
-                    </Link>        
+                    {song.attributes.name}        
             </Typography>
             <Typography 
                 style={{
