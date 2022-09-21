@@ -29,10 +29,10 @@ const ArtistTopSongs = ({artist}) => {
 
     <li className="track-list-item" style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%",}}>
         <div style={{width:"100%", display:"flex", justifyContent:"start", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif", fontSize:"16px", padding:"10px 40px"}}>
-            <div style={{width:"75px", fontSize:"16px"}} >
+            <div style={{width:"75px", fontSize:"16px", marginLeft:"-10px"}} >
                 {songs.indexOf(song) + 1}
             </div>
-        <div style={{width:"20em", marginLeft:"-10px"}}>
+        <div style={{width:"20em", marginLeft:"-5px"}}>
             <Typography
                 style={{
                 fontFamily:"Roboto, sans-serif",

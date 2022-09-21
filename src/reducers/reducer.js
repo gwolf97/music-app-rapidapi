@@ -1,4 +1,4 @@
-import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, GET_ARTIST_DETAILS_FAIL, GET_ARTIST_DETAILS_REQUEST, GET_ARTIST_DETAILS_SUCCESS, GET_RELATED_TRACKS_FAIL, GET_RELATED_TRACKS_REQUEST, GET_RELATED_TRACKS_SUCCESS, GET_TRACK_FAIL, GET_TRACK_REQUEST, GET_TRACK_SUCCESS, TOP_CHARTS_FAIL, TOP_CHARTS_REQUEST, TOP_CHARTS_SUCCESS } from "../constants/constants"
+import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, GET_ARTIST_DETAILS_FAIL, GET_ARTIST_DETAILS_REQUEST, GET_ARTIST_DETAILS_SUCCESS, GET_RELATED_TRACKS_FAIL, GET_RELATED_TRACKS_REQUEST, GET_RELATED_TRACKS_SUCCESS, GET_TRACK_FAIL, GET_TRACK_REQUEST, GET_TRACK_SUCCESS, SEARCH_FAIL, SEARCH_REQUEST, SEARCH_SUCCESS, TOP_CHARTS_FAIL, TOP_CHARTS_REQUEST, TOP_CHARTS_SUCCESS } from "../constants/constants"
 
 
 export const genreReducer = (state = {genreTracks: []}, action) =>{
@@ -60,6 +60,19 @@ export const getArtistDetailsReducer = (state = {artist: []}, action) =>{
        case GET_ARTIST_DETAILS_SUCCESS:
            return {...state, loading: false, success:true, artist: [action.payload.data2.artists.hits[0].artist, action.payload.data]}
        case GET_ARTIST_DETAILS_FAIL:
+           return {loading: false, success:false, error: action.payload}
+       default:
+           return state
+    }
+   }
+
+export const searchReducer = (state = {search: []}, action) =>{
+    switch(action.type){
+       case SEARCH_REQUEST:
+           return {...state, loading:true, success:false, search: []}
+       case SEARCH_SUCCESS:
+           return {...state, loading: false, success:true, search: action.payload}
+       case SEARCH_FAIL:
            return {loading: false, success:false, error: action.payload}
        default:
            return state

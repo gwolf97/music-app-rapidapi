@@ -16,8 +16,6 @@ const RelatedSongs = ({songKey}) => {
         dispatch(getRelatedTracks(songKey))
     }, [])
 
-    console.log(relatedSongs)
-
     const handlePlay = () => {
         console.log("play")
     }
@@ -75,7 +73,7 @@ const RelatedSongs = ({songKey}) => {
             </Typography>
         </div>
         </div>
-            <div onClick={handlePlay(song.hub.actions[1].uri)} style={{padding:"10px", cursor:"pointer",position:"relative", right:"20px", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
+            <div onClick={() => handlePlay} style={{padding:"10px", cursor:"pointer",position:"relative", right:"20px", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
     </li>
 </div>
     ))}
