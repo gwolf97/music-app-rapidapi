@@ -9,6 +9,7 @@ import Fade from 'react-reveal/Fade';
 const Discover = () => {
 
     const [selected, setSelected] = React.useState("POP")
+    const [fadeAmount, setFadeAmount] = React.useState(4)
 
     const dispatch = useDispatch()
     const {genreTracks} = useSelector(state => state.genre)
@@ -22,10 +23,18 @@ const Discover = () => {
         document.getElementById("main").scrollTo(0, 0)
       }, [])
 
+    React.useEffect(() => {
+        function handleResize() {
+            window.innerWidth < 1280 ? setFadeAmount(0) : setFadeAmount(4)
+         }
+        handleResize()
+        window.addEventListener('resize', handleResize)
+      },[])
+
     const filteredList = genreTracks.filter(song => song.images)
 
-    const firstFourSongs = filteredList.slice(0, 4)
-    const remainingSongs = filteredList.slice(4)
+    const firstSongs = filteredList.slice(0, fadeAmount)
+    const remainingSongs = filteredList.slice(fadeAmount)
 
   return (
     <>
@@ -64,7 +73,7 @@ const Discover = () => {
         </div>
         <div>
             <Grid container>
-                {firstFourSongs.map(track => (
+                {firstSongs.map(track => (
                         <Grid key={track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
                             <Fade bottom>
                                 <SongCard topCharts={false} song={track}/>

@@ -9,10 +9,11 @@ import { search } from '../actions/actions'
 
 const SearchScreen = () => {
 
+    const [fadeAmount, setFadeAmount] = React.useState(4)
+
     const params = useParams() 
     const dispatch = useDispatch()
    
-
     React.useEffect(() =>{
         const query = params.search
         dispatch(search(query))
@@ -24,12 +25,20 @@ const SearchScreen = () => {
 
     const filteredList = songs.filter(song => song.track.images)
 
-    const firstFourSongs = filteredList.slice(0, 4)
-    const remainingSongs = filteredList.slice(4)
+    const firstSongs = filteredList.slice(0, fadeAmount)
+    const remainingSongs = filteredList.slice(fadeAmount)
 
     React.useEffect(() => {
       document.getElementById("main").scrollTo(0, 0)
     }, [])
+
+    React.useEffect(() => {
+        function handleResize() {
+            window.innerWidth < 900 ? setFadeAmount(2) : setFadeAmount(4)
+         }
+        handleResize()
+        window.addEventListener('resize', handleResize)
+      },[])
     
   return (
     <>
@@ -42,7 +51,7 @@ const SearchScreen = () => {
             </div>
             <div>
                 <Grid container>
-                    { firstFourSongs.map(song => (
+                    { firstSongs.map(song => (
                             <Grid key={song.track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
                             <Fade bottom>
                                     <SongCard topCharts={false} song={song.track}/>

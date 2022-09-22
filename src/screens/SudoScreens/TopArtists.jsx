@@ -7,16 +7,27 @@ import Fade from "react-reveal/Fade"
 
 const TopArtists = () => {
 
+    const [fadeAmount, setFadeAmount] = React.useState(4)
+
+
     const {songs} = useSelector(state => state.topCharts)
 
     const filteredList = songs.filter(song => song.images)
     
-    const firstFourSongs = filteredList.slice(0, 4)
-    const remainingSongs = filteredList.slice(4)
+    const firstSongs = filteredList.slice(0, fadeAmount)
+    const remainingSongs = filteredList.slice(fadeAmount)
 
     React.useEffect(() => {
       document.getElementById("main").scrollTo(0, 0)
     }, [])
+
+    React.useEffect(() => {
+      function handleResize() {
+          window.innerWidth < 900 ? setFadeAmount(2) : setFadeAmount(4)
+       }
+      handleResize()
+      window.addEventListener('resize', handleResize)
+    },[])
 
   return (
     <>
@@ -27,7 +38,7 @@ const TopArtists = () => {
         </div>
         <div>
             <Grid container>
-                {firstFourSongs.map(track => (
+                {firstSongs.map(track => (
                         <Grid key={track.key} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}} item xs={12} md={6}>
                           <Fade bottom>
                               <ArtistCard song={track}/>
