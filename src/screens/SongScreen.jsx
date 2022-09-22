@@ -21,9 +21,8 @@ const SongScreen = () => {
 
   return (
     <>
-    <div className="song-screen-container" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                {loading && <DisappearedLoading color={"#fefefe"} size={"large"}/>}
-                    
+    {!loading && success ? (
+      <div className="song-screen-container" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>        
                 {!loading && success && (
                 <Fade bottom>
                      <div className="details-div">
@@ -39,7 +38,11 @@ const SongScreen = () => {
              )}
         </ul>
     </div>
-
+    ) : (
+    <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
+        <DisappearedLoading color={"#fefefe"} size={"large"}/> 
+    </div>
+    )}
     </>
   )
 }

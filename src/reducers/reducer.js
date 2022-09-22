@@ -4,11 +4,11 @@ import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, GET_ARTIST_DETAILS_FAIL, GET_
 export const genreReducer = (state = {genreTracks: []}, action) =>{
     switch(action.type){
        case GENRE_REQUEST:
-           return {...state, loading:true, genreTracks:[]}
+           return {...state, loading:true, success: false, genreTracks:[]}
        case GENRE_SUCCESS:
-           return {...state, loading: false, genreTracks: action.payload}
+           return {...state, loading: false, success:true,  genreTracks: action.payload}
        case GENRE_FAIL:
-           return {loading: false, error: action.payload}
+           return {loading: false, success:false, error: action.payload}
        default:
            return state
     }

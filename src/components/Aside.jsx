@@ -7,7 +7,10 @@ import Fade from 'react-reveal/Fade';
 const Aside = () => {
 
 const topCharts = useSelector(state => state.topCharts.songs)
+const {loading, success} = useSelector(state => state.topCharts)
 const topFiveSongs = topCharts.slice(0, 5);
+
+const array = [1,2,3,4,5]
 
 const handlePlay = (songPreviewLink) => {
    
@@ -23,7 +26,9 @@ const handlePlay = (songPreviewLink) => {
         </Link>      
         </p>
     </div>
-    <ul style={{overflow:"scroll", width:"100%", height:"480px"}}>
+    
+    {!loading && success ? (<>
+        <ul style={{overflow:"scroll", width:"100%", height:"480px"}}>
         {topFiveSongs.map(song => (
             <div key={`${song.key} aside`}>
                 <Fade right>
@@ -102,6 +107,23 @@ const handlePlay = (songPreviewLink) => {
             ))}
         </div>
     </div>
+    </>
+    ) : (
+        <>
+            {array.map(key =>(
+                <li className="track-list-item"  style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%"}}>
+                <div style={{width:"100px", display:"flex", justifyContent:"center", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif"}}>
+                    <div style={{width:"85px", height:"85px", marginLeft:"12px", backgroundColor:"#4c426e"}}></div>
+                </div>
+                <div style={{width:"100%"}}>
+                    <div style={{width:"70%", height:"5px", borderRadius:"20px", backgroundColor:"#4c426e", marginLeft:"10px"}}></div>
+                    <div style={{width:"50%", height:"5px", borderRadius:"20px", backgroundColor:"#4c426e", margin:"10px 0 0 10px"}}></div>
+                    <div></div>
+                </div>
+            </li>
+            ))}
+        </>
+    ) }
     </>
   )
 }

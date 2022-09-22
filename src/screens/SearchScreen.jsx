@@ -5,7 +5,7 @@ import SongCard from '../components/SongCard'
 import Fade from "react-reveal/Fade"
 import { useParams } from 'react-router-dom'
 import { search } from '../actions/actions'
-
+import {SpinnerDotted} from "spinners-react"
 
 const SearchScreen = () => {
 
@@ -42,7 +42,7 @@ const SearchScreen = () => {
     
   return (
     <>
-        {!loading && success && (
+        {!loading && success ? (
         <>
             <div className="discover-bg">
             <Fade left>
@@ -66,6 +66,10 @@ const SearchScreen = () => {
                 </Grid>
             </div>
         </>
+        ) : (
+        <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
+            <SpinnerDotted color={"#fefefe"} size={100}/> 
+        </div>
         )}
     </>
   )
