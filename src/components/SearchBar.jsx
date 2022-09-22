@@ -23,7 +23,6 @@ const SearchBar = () => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       console.log('do validate')
-      dispatch(search(query))
       navigate(`/search/${query}`)
       setQuery("")
     }

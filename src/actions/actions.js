@@ -178,7 +178,7 @@ export const search = (search) => async (dispatch) =>{
         const options = {
             method: 'GET',
             url: 'https://shazam-core.p.rapidapi.com/v1/search/multi',
-            params: {offset: '0', query: `${search}`, search_type: 'ARTISTS'},
+            params: {offset: '0', query: `${search}`, search_type: 'SONGS'},
             headers: {
               'X-RapidAPI-Key': 'c933348c15mshf224bd49aee5258p1121c9jsn39e8cfa0a0b2',
               'X-RapidAPI-Host': 'shazam-core.p.rapidapi.com'
