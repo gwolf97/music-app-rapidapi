@@ -60,7 +60,9 @@ const handlePlay = (songPreviewLink) => {
                             display:  "-webkit-box",
                                         "WebkitLineClamp": "1",
                                         "WebkitBoxOrient": "vertical",
-                            overflow:"hidden"}} >
+                            overflow:"hidden",
+                            color:"#fefefe"
+                            }} >
                             
                                 <Link to={`/artist/${song.artists[0].adamid}`} className={"song-title-link"} >
                                     {song.subtitle}
@@ -82,7 +84,7 @@ const handlePlay = (songPreviewLink) => {
         </p>
     </div>
     <div style={{paddingTop:"5px"}} className='sm-charts-scroll'>
-        <div style={{display:"flex", width:"100%", height:"100px"}}>
+        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center"}}>
             {topFiveSongs.map(song => (
                 <div key={`${song.key} aside artist key`}>
                 <Fade right>
@@ -111,7 +113,7 @@ const handlePlay = (songPreviewLink) => {
     ) : (
         <>
             {array.map(key =>(
-                <li className="track-list-item"  style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%"}}>
+                <li key={key} className="track-list-item"  style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%"}}>
                 <div style={{width:"100px", display:"flex", justifyContent:"center", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif"}}>
                     <div style={{width:"85px", height:"85px", marginLeft:"12px", backgroundColor:"#4c426e"}}></div>
                 </div>

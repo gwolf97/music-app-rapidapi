@@ -30,7 +30,7 @@ const SongScreen = () => {
                      </div>
                 </Fade>
                             )}
-        <ul className="related-songs-container" style={{marginTop:"250px", width:"100%", display:"flex", flexDirection:"column", justifyContent:"start" }}>
+        <ul className="related-songs-container">
              {!loading && success && (
                 <Fade left>
                     <RelatedSongs songKey={song.key} />

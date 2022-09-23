@@ -5,9 +5,11 @@ import { ListItem, List } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-export default function Navbar({handleClose, navOpen}) {
+export default function Navbar({handleClose, navOpen, variant}) {
 
     const params = useParams()
+
+
 
   return (
     <>
@@ -22,8 +24,9 @@ export default function Navbar({handleClose, navOpen}) {
             color:"#9ca4b0"
           },
         }}
-        variant="permanent"
         anchor="left"
+        variant={variant}
+        open={navOpen}
       >
         <Toolbar style={{display:"flex", justifyContent:"end", width:"100%"}}>
             <i onClick={() => handleClose()} style={{cursor:"pointer", fontSize:"20px"}} className="fa-sharp fa-solid fa-x nav-link x"></i>

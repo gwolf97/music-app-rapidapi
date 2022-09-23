@@ -11,13 +11,17 @@ import SongScreen from './SongScreen.jsx';
 import ArtistScreen from './ArtistScreen.jsx';
 import SearchScreen from './SearchScreen.jsx';
 
+
+
 const MainScreen = ({discover}) => {
 
     const [navOpen, setNavOpen] = React.useState(false)
+    const [variant, setVariant] = React.useState("permanent")
 
     React.useEffect(() => {
         function handleResize() {
-          window.innerWidth >= 769 && setNavOpen(false)
+          window.innerWidth >= 769 ? setNavOpen(true) : setNavOpen(false)
+          window.innerWidth >= 769 ? setVariant("permanent")  : setVariant(null)
     }
         window.addEventListener('resize', handleResize)
       },[])
@@ -35,9 +39,9 @@ const MainScreen = ({discover}) => {
            <div className='menu-btn'><Button onClick={() =>setNavOpen(!navOpen)} style={{height:"100%"}} disableRipple startIcon={(<i style={{fontSize:"22px", color:"#9ca4b0", opacity:"0.6"}} className="fa-solid fa-bars"></i>)}/></div>
            <SearchBar/>
         </div>
-        <div className={navOpen ? "navbar navbar-open" : "navbar"}>
-            <Navbar handleClose={handleClose} navOpen={navOpen}/>
-        </div>
+          <div className={ "navbar"}>
+              <Navbar handleClose={handleClose} navOpen={navOpen} variant={variant}/>
+          </div>
         <div id="main" style={{overflow:"scroll"}} className="main">
             {discover && <Discover/>}
             {params.topcharts === ":topcharts" && <TopCharts/>}
