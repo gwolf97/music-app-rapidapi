@@ -11,6 +11,7 @@ import SongScreen from './SongScreen.jsx';
 import ArtistScreen from './ArtistScreen.jsx';
 import SearchScreen from './SearchScreen.jsx';
 import Fade from "react-reveal/Fade"
+import Player from '../components/Player.jsx';
 
 
 const MainScreen = ({discover}) => {
@@ -56,6 +57,7 @@ const MainScreen = ({discover}) => {
         <div style={{overflow:"scroll"}} className="aside">
             <Aside/>
         </div>
+        <Player/>
     </main>
   )
 }
