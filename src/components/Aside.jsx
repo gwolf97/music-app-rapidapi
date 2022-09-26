@@ -84,7 +84,7 @@ const handlePlay = (songPreviewLink) => {
         </p>
     </div>
     <div style={{paddingTop:"5px"}} className='sm-charts-scroll'>
-        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center"}}>
+        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center", paddingLeft:"30px"}}>
             {topFiveSongs.map(song => (
                 <div key={`${song.key} aside artist key`}>
                 <Fade right>

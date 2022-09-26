@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRef } from "react";
 import { Typography } from "@mui/material";
+import Volume from "./Volume";
 
 const useAudio = (url) => {
   const [audio] = useState(new Audio(url));
@@ -58,23 +59,25 @@ const clickRef = useRef()
   }
 
   return (
-    <div style={{display:"flex", justifyContent:"space-between", alignItems:"center" ,position:"fixed", bottom:"0", width:"100vw", height:"120px", bottom:"0px", backgroundColor:"rgba(255, 255, 255, 0.2)", backdropFilter: "blur(8px)", borderTopRightRadius:"30px", borderTopLeftRadius:"30px"}}>
-    <div style={{display:"flex"}}>
-        <i style={{fontSize:"50px", margin:"0px 5px 0 30px", color:"#171320"}} className="fa-solid fa-volume"></i>
-        <div className="player-title-artist" style={{ height:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"start"}}>
-            <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"700", fontSize:"1.1rem"}}>Going Crazy</Typography>
-            <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"700", fontSize:"1.1rem"}}>Chris Brown</Typography>
+    <div className="player-container" style={{display:"flex", justifyContent:"space-between", alignItems:"center" ,position:"fixed", bottom:"0", width:"100vw", height:"110px", bottom:"0px", backgroundColor:"rgba(55, 51, 129, 0.2)", backdropFilter: "blur(15px)", borderTopRightRadius:"30px", borderTopLeftRadius:"30px"}}>
+    <div  className="player-title-artist" style={{width:"100%",display:"flex", justifyContent:"center", alignItems:"center"}} >
+        <div style={{ height:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+            <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem"}}>Going Crazy</Typography>
+            <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem"}}>Chris Brown</Typography>
         </div>
     </div>
-    <div className="controls" style={{margin:"0 20px 0 0", height:"120px", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",}}>
+    <div className="player-controls" style={{width:"100%", margin:"0 20px 0 0", height:"120px", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",}}>
       <div style={{backgroundColor:"transparent",color:"#fefefe", cursor:"pointer", fontSize:"35px"}} onClick={toggle}>{playing ? <i class="fa-solid fa-pause"></i> : <i class="fa-solid fa-play"></i>}</div>
-        <div className="time-scroller" style={{display:"flex", width:"200px", alignItems:"center", justifyContent:"space-around"}}>
+        <div className="time-scroller" style={{display:"flex", width:"100%", alignItems:"center", justifyContent:"space-around"}}>
             <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"900", fontSize:"1rem"}}>{`${padTo2Digits(currentMinutes)}:${padTo2Digits(currentSeconds)}`}</Typography>
             <div onClick={checkWidth} ref={clickRef} style={{width:"100%", margin:"0 10px", height:"5px", backgroundColor:"#fefefe"}}>
-                <div style={{height:"5px", backgroundColor:"#0d74f5", width:`${progressBar+"%"}`, display:"flex", justifyContent:"end", alignItems:"center"}}><div style={{height:"15px", borderRadius:"50%", width:"15px", backgroundColor:"#0d74f5", marginRight:"-10px"}}></div></div> 
+                <div style={{height:"5px", backgroundColor:"#0d74f5", width:`${progressBar+"%"}`, display:"flex", justifyContent:"end", alignItems:"center"}}><div style={{height:"15px", borderRadius:"50%", padding:"7px", backgroundColor:"#0d74f5", marginRight:"-10px"}}></div></div> 
             </div>
             <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"900", fontSize:"1rem"}}>{`${padTo2Digits(durationMinutes)}:${padTo2Digits(durationSeconds)}`}</Typography>
         </div>
+    </div>
+    <div className="player-volume" style={{width:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
+        <Volume/>
     </div>
     </div>
   );

@@ -172,6 +172,18 @@ fieldset{
   transform: translate3d(0, 0, 0); /* ADDED - move y to 0 on hover */
 }
 
+.player-container {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "player-title-artist player-controls player-volume"; 
+}
+.player-title-artist { grid-area: player-title-artist; }
+.player-controls { grid-area: player-controls; }
+.player-volume { grid-area: player-volume; }
+
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .discover-bg{
@@ -227,8 +239,6 @@ fieldset{
   
   .main { grid-area: main; }
 
-
-
   .x{
     display: block;
   }
@@ -237,6 +247,10 @@ fieldset{
     display: none;
   }
   
+  .player-volume { grid-area: player-volume; 
+    display: none;
+  }
+
 }
 
 
