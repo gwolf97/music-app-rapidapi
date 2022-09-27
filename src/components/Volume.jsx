@@ -6,8 +6,8 @@ const Volume = () => {
     const finalVolume = muted ? 0 : volume ** 2
   
     return (
-      <main>
-        <section>
+      <div className="player-volume">
+        <div>
           <input
             type="range"
             min={0}
@@ -21,11 +21,11 @@ const Volume = () => {
           <button onClick={() => setMuted(m => !m)}>
             {muted ? "muted" : "unmuted"}
           </button>
-        </section>
-        <section>
+        </div>
+        <div>
           <p>final volume: {finalVolume.toFixed(3)}</p>
-        </section>
-      </main>
+        </div>
+      </div>
     )
 }
 

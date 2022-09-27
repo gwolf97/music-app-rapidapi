@@ -246,10 +246,7 @@ fieldset{
   .aside { grid-area: aside; 
     display: none;
   }
-  
-  .player-volume { grid-area: player-volume; 
-    display: none;
-  }
+
 
 }
 

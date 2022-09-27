@@ -38,6 +38,8 @@ const useAudio = (url) => {
 const Player = () => {
   const [playing, toggle, currentTime, songDuration, progressBar, audio] = useAudio("https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/0a/9c/94/0a9c94fa-b331-f24c-5615-c15405b60120/mzaf_11529453508369085869.plus.aac.ep.m4a");
 
+  const [volume, setVolume] = React.useState(1)
+
 const clickRef = useRef()
 
   const currentMinutes = Math.floor(currentTime.toFixed(0) / 60)
@@ -58,8 +60,23 @@ const clickRef = useRef()
     audio.currentTime = divProgress / 100 * songDuration
   }
 
+  const handleVolume = (e) =>{
+    setVolume(e.target.valueAsNumber)
+    audio.volume = volume
+  }
+
+  const mute = () =>{
+    setVolume(0)
+    audio.volume = volume
+  }
+
+  const unMute = () =>{
+    setVolume(0.7)
+    audio.volume = volume
+  }
+
   return (
-    <div className="player-container" style={{display:"flex", justifyContent:"space-between", alignItems:"center" ,position:"fixed", bottom:"0", width:"100vw", height:"110px", bottom:"0px", backgroundColor:"rgba(55, 51, 129, 0.2)", backdropFilter: "blur(15px)", borderTopRightRadius:"30px", borderTopLeftRadius:"30px"}}>
+    <div className="player-container" style={{display:"flex", justifyContent:"center", alignItems:"center" ,position:"fixed", bottom:"0", width:"100vw", height:"110px", bottom:"0px", backgroundColor:"rgba(55, 51, 129, 0.2)", backdropFilter: "blur(15px)", borderTopRightRadius:"30px", borderTopLeftRadius:"30px"}}>
     <div  className="player-title-artist" style={{width:"100%",display:"flex", justifyContent:"center", alignItems:"center"}} >
         <div style={{ height:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
             <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem"}}>Going Crazy</Typography>
@@ -76,9 +93,22 @@ const clickRef = useRef()
             <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"900", fontSize:"1rem"}}>{`${padTo2Digits(durationMinutes)}:${padTo2Digits(durationSeconds)}`}</Typography>
         </div>
     </div>
-    <div className="player-volume" style={{width:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
-        <Volume/>
-    </div>
+    <div style={{width:"100%"}} className="player-volume">
+            <div style={{display:"flex", width:"100%", justifyContent:"center", alignItems:"center", cursor:"pointer"}}>
+                <div style={{fontSize:"16px", color:"#fefefe", marginRight:"2px", width:"25px"}}>
+                    {volume === 0 ? <i onClick={() => unMute()} className="fa-solid fa-volume-xmark"></i> : volume <= 0.6 ? <i onClick={() => mute()}  className="fa-solid fa-volume-low"></i> : volume > 0.6 && <i onClick={() => mute()}  className="fa-solid fa-volume-high"></i>}
+                </div>
+                <input
+                    style={{height:"5px", cursor:"pointer"}}
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.02}
+                    value={volume}
+                    onChange={e => handleVolume(e)}
+                />
+            </div>
+        </div>
     </div>
   );
 };
