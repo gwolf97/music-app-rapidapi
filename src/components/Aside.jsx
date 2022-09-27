@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 
-const Aside = () => {
+const Aside = ({playerOpen}) => {
 
 const topCharts = useSelector(state => state.topCharts.songs)
 const {loading, success} = useSelector(state => state.topCharts)
@@ -28,7 +28,7 @@ const handlePlay = (songPreviewLink) => {
     </div>
     
     {!loading && success ? (<>
-        <ul style={{overflow:"scroll", width:"100%", height:"480px"}}>
+        <ul style={playerOpen ? {overflow:"scroll", width:"100%", height:"380px"} : {overflow:"scroll", width:"100%", height:"480px"}  }>
         {topFiveSongs.map(song => (
             <div key={`${song.key} aside`}>
                 <Fade right>
@@ -84,7 +84,7 @@ const handlePlay = (songPreviewLink) => {
         </p>
     </div>
     <div style={{paddingTop:"5px"}} className='sm-charts-scroll'>
-        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center", paddingLeft:"30px"}}>
+        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center", paddingLeft:"60px"}}>
             {topFiveSongs.map(song => (
                 <div key={`${song.key} aside artist key`}>
                 <Fade right>

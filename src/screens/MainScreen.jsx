@@ -59,7 +59,7 @@ const MainScreen = ({discover}) => {
             {params.search && <SearchScreen /> }
         </div>
         <div style={{overflow:"scroll"}} className="aside">
-            <Aside/>
+            <Aside playerOpen={playerOpen}/>
         </div>
         <Fade bottom when={!playerOpen}>
           <div onClick={() => setPlayerOpen(true)}  style={{display:"flex", color:"#fefefe", position:"absolute", zIndex:"1", left:"25px", bottom:"8px", fontSize:"22px", alignItems:"center", justifyContent:"center", cursor:"pointer"}}>
