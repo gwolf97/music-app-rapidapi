@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useRef } from "react";
 import { Typography } from "@mui/material";
 import Volume from "./Volume";
 import useAudio from "./useAudio";
@@ -8,8 +7,6 @@ const Player = () => {
   const [playing, toggle, currentTime, songDuration, progressBar, audio] = useAudio("https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/0a/9c/94/0a9c94fa-b331-f24c-5615-c15405b60120/mzaf_11529453508369085869.plus.aac.ep.m4a");
 
   const [volume, setVolume] = React.useState(1)
-
-const clickRef = useRef()
 
   const currentMinutes = Math.floor(currentTime.toFixed(0) / 60)
   const durationMinutes = Math.floor(songDuration.toFixed(0) / 60)
@@ -22,11 +19,8 @@ const clickRef = useRef()
   }
 
   const checkWidth = (e) => {
-    let width = clickRef.current.clientWidth
-    const offset = e.nativeEvent.offsetX
 
-    const divProgress = offset / width * 100
-    audio.currentTime = divProgress / 100 * songDuration
+    audio.currentTime = e.target.value
   }
 
   const handleVolume = (e) =>{
@@ -64,9 +58,15 @@ const clickRef = useRef()
       <div style={{backgroundColor:"transparent",color:"#fefefe", cursor:"pointer", fontSize:"35px"}} onClick={toggle}>{playing ? <i class="fa-solid fa-pause"></i> : <i class="fa-solid fa-play"></i>}</div>
         <div className="time-scroller" style={{display:"flex", width:"100%", alignItems:"center", justifyContent:"space-around"}}>
             <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"900", fontSize:"1rem"}}>{`${padTo2Digits(currentMinutes)}:${padTo2Digits(currentSeconds)}`}</Typography>
-            <div onClick={checkWidth} ref={clickRef} style={{width:"100%", margin:"0 10px", height:"5px", backgroundColor:"#fefefe"}}>
-                <div style={{height:"5px", backgroundColor:"#0d74f5", width:`${progressBar+"%"}`, display:"flex", justifyContent:"end", alignItems:"center"}}><div style={{height:"15px", borderRadius:"50%", padding:"7px", backgroundColor:"#0d74f5", marginRight:"-10px"}}></div></div> 
-            </div>
+            <input
+                style={{height:"5px",width:"100%", cursor:"pointer", margin:"0 6px"}}
+                type="range"
+                min={0}
+                max={songDuration}
+                step={0.02}
+                value={progressBar}
+                onChange={e => checkWidth(e)}
+            />
             <Typography style={{color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"900", fontSize:"1rem"}}>{`${padTo2Digits(durationMinutes)}:${padTo2Digits(durationSeconds)}`}</Typography>
         </div>
     </div>
