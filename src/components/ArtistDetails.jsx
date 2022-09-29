@@ -1,7 +1,5 @@
 import React from 'react'
 import { Typography, Avatar } from '@mui/material'
-import { Link } from 'react-router-dom'
-
 
 const SongDetails = ({artist, artistId}) => {
 
@@ -23,10 +21,6 @@ const SongDetails = ({artist, artistId}) => {
         window.addEventListener('resize', handleResize)
       },[])
 
-    const handlePlay = () => {
-        console.log("play")
-    }
-
 
   return (
     <>
@@ -34,7 +28,7 @@ const SongDetails = ({artist, artistId}) => {
         <div style={{margin: margin, height:avatarSize, width:avatarSize, display:"flex", justifyContent:"center", alignItems:"center"}}>
             <Avatar className={"song-details-avatar"} style={{ width: avatarSize, height: avatarSize, border:"2px solid #FEFEFE", boxShadow: "5px 5px 30px 1px rgba(0,0,0,1)"}} src={artist[0].avatar} alt="" />
         </div>
-        <div style={{ width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
+        <div style={{ display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
             <Typography
                 style={{
                 height:"100%",

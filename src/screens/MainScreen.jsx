@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button} from '@mui/material';
 import Navbar from "../components/Navbar.jsx"
 import SearchBar from '../components/SearchBar.jsx';
@@ -19,15 +19,15 @@ const MainScreen = ({discover}) => {
 
     const {song} = useSelector(state => state.playerSong)
 
-    const [navOpen, setNavOpen] = React.useState(false)
-    const [variant, setVariant] = React.useState(null)
-    const [playerOpen, setPlayerOpen] = React.useState(false)
+    const [navOpen, setNavOpen] = useState(false)
+    const [variant, setVariant] = useState(null)
+    const [playerOpen, setPlayerOpen] = useState(false)
 
-    React.useEffect(() =>{
+    useEffect(() =>{
       song.url && setPlayerOpen(true)
     },[song.url])
 
-    React.useEffect(() => {
+    useEffect(() => {
         function handleResize() {
           window.innerWidth >= 769 ? setNavOpen(true) : setNavOpen(false)
           window.innerWidth >= 769 ? setVariant("permanent")  : setVariant(null)
@@ -44,9 +44,16 @@ const MainScreen = ({discover}) => {
 
 
   return (
-    <main className="container" style={{height:"100vh"}}>
+    <main className="container">
         <div className="search">
-           <div className='menu-btn'><Button onClick={() =>setNavOpen(!navOpen)} style={{height:"100%"}} disableRipple startIcon={(<i style={{fontSize:"22px", color:"#9ca4b0", opacity:"0.6"}} className="fa-solid fa-bars"></i>)}/></div>
+          <div className='menu-btn'>
+            <Button onClick={() =>setNavOpen(!navOpen)} 
+            style={{height:"100%"}} 
+            disableRipple 
+            startIcon={(
+                <i style={{fontSize:"22px"}} className="fa-solid fa-bars menu-btn-icon"></i>
+                )}/>
+          </div>
            <SearchBar/>
         </div>
         <Fade left>
@@ -54,7 +61,7 @@ const MainScreen = ({discover}) => {
               <Navbar handleClose={handleClose} navOpen={navOpen} variant={variant}/>
           </div>
         </Fade>
-        <div id="main" style={{overflow:"scroll"}} className="main">
+        <div id="main" className="main">
             {discover && <Discover/>}
             {params.topcharts === ":topcharts" && <TopCharts/>}
             {params.artists === ":topartists" && <TopArtists/>}
@@ -62,15 +69,19 @@ const MainScreen = ({discover}) => {
             {params.id && <ArtistScreen /> }
             {params.search && <SearchScreen /> }
         </div>
-        <div style={{overflow:"scroll"}} className="aside">
+        <div className="aside">
             <Aside playerOpen={playerOpen}/>
         </div>
-        { song.url && (<><Fade bottom when={!playerOpen}>
-          <div onClick={() => setPlayerOpen(true)}  style={{display:"flex", color:"#fefefe", position:"absolute", zIndex:"1", left:"25px", bottom:"8px", fontSize:"22px", alignItems:"center", justifyContent:"center", cursor:"pointer"}}>
-            <i style={{ opacity:"0.5"}}  className="fa-solid fa-chevron-up"></i> <p style={{fontSize:"16px", marginLeft:"5px", paddingBottom:"3px",  opacity:"0.5"}}>open</p>
-          </div>
-          </Fade>
-          </>)}
+        { song.url && (
+          <>
+            <Fade bottom when={!playerOpen}>
+            <div onClick={() => setPlayerOpen(true)} className="open-player-div" >
+              <i className="fa-solid fa-chevron-up"></i> 
+              <p>open</p>
+            </div>
+            </Fade>
+          </>
+        )}
           <Player playerOpen={playerOpen} setPlayerOpen={setPlayerOpen}/>
 
     </main>

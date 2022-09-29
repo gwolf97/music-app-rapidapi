@@ -25,7 +25,12 @@ code {
     monospace;
 }
 
+/********************************** *********** ***********************************/
+/********************************** Main Screen ***********************************/
+/********************************** *********** ***********************************/
+
 .container {
+  height: 100vh;
   background: rgb(47,41,69);
   background: linear-gradient(165deg, rgba(47,41,69,1) 0%, rgba(47,47,145,1) 100%);
   display: grid; 
@@ -53,11 +58,16 @@ code {
 }
 
 .aside { grid-area: aside; 
-
+  overflow: scroll;
 }
 
 .aside::-webkit-scrollbar { 
   display: none; 
+}
+
+.menu-btn-icon{
+  color: #9ca4b0;
+  opacity: 0.6;
 }
 
 .menu-btn{
@@ -66,6 +76,8 @@ code {
   align-items: center;
   height: 100%;
 }
+
+
 
 .discover-bg{
   background-color:#4b4088; 
@@ -172,6 +184,30 @@ fieldset{
   transform: translate3d(0, 0, 0); /* ADDED - move y to 0 on hover */
 }
 
+.open-player-div{
+  display: flex;
+  color: #fefefe;
+  position: absolute;
+  z-index: 1;
+  left: 25px;
+  bottom: 8px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.open-player-div i{
+  opacity: 0.5;
+}
+
+.open-player-div p{
+  font-size:16px;
+  margin-left:5px;
+  padding-bottom:3px;
+  opacity:0.5;
+}
+
 .player-container {
   display: grid; 
   height:110px;
@@ -256,7 +292,7 @@ fieldset{
   
   .search { grid-area: search; }
   
-  .main { grid-area: main; }
+  .main { grid-area: main;}
 
   .x{
     display: block;
