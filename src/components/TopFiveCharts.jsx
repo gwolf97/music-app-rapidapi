@@ -1,7 +1,7 @@
 import { Avatar, Typography } from '@mui/material';
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SongCard from './SongCard';
 import Fade from 'react-reveal/Fade';
 
@@ -9,6 +9,8 @@ const TopFiveCharts = () => {
 
 const topCharts = useSelector(state => state.topCharts.songs)
 const topFiveSongs = topCharts.slice(0, 5);
+
+const navigate = useNavigate()
 
   return (
     <>
@@ -46,7 +48,7 @@ const topFiveSongs = topCharts.slice(0, 5);
                     <div key={`${song.key} unique artist`}>
                     <Fade right>
                     <div style={{display:"flex", flexDirection:"column", width:"100px", alignItems:"center", justifyContent:"center", width:"80px", margin:"0 60px"}}>
-                                <Avatar sx={{width:"11rem", height:"11rem", cursor:"pointer"}} src={song.images.background}/>
+                                <Avatar onClick={() => navigate(`/artist/${song.artists[0].adamid}`)} sx={{width:"11rem", height:"11rem", cursor:"pointer"}} src={song.images.background}/>
                         <Typography                             
                         style={{
                             fontFamily:"Roboto, sans-serif",

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, GET_ARTIST_DETAILS_FAIL, GET_ARTIST_DETAILS_REQUEST, GET_ARTIST_DETAILS_SUCCESS, GET_RELATED_TRACKS_FAIL, GET_RELATED_TRACKS_REQUEST, GET_RELATED_TRACKS_SUCCESS, GET_TRACK_FAIL, GET_TRACK_REQUEST, GET_TRACK_SUCCESS, SEARCH_FAIL, SEARCH_REQUEST, SEARCH_SUCCESS, TOP_ARTISTS_FAIL, TOP_ARTISTS_REQUEST, TOP_ARTISTS_SUCCESS, TOP_CHARTS_FAIL, TOP_CHARTS_REQUEST, TOP_CHARTS_SUCCESS } from "../constants/constants";
+import { GENRE_FAIL, GENRE_REQUEST, GENRE_SUCCESS, GET_ARTIST_DETAILS_FAIL, GET_ARTIST_DETAILS_REQUEST, GET_ARTIST_DETAILS_SUCCESS, GET_RELATED_TRACKS_FAIL, GET_RELATED_TRACKS_REQUEST, GET_RELATED_TRACKS_SUCCESS, GET_TRACK_FAIL, GET_TRACK_REQUEST, GET_TRACK_SUCCESS, SEARCH_FAIL, SEARCH_REQUEST, SEARCH_SUCCESS, SET_PLAYER_SONG_FAIL, SET_PLAYER_SONG_REQUEST, SET_PLAYER_SONG_SUCCESS, TOP_ARTISTS_FAIL, TOP_ARTISTS_REQUEST, TOP_ARTISTS_SUCCESS, TOP_CHARTS_FAIL, TOP_CHARTS_REQUEST, TOP_CHARTS_SUCCESS } from "../constants/constants";
 
 export const getTracksByGenere = (genre) => async (dispatch) =>{
     try {
@@ -195,6 +195,30 @@ export const search = (search) => async (dispatch) =>{
     } catch (error) {
         dispatch({
             type: SEARCH_FAIL,
+            payload: error.message
+        })
+    }
+}
+
+export const setPlayerSong = (songData) => async (dispatch) =>{
+    try {
+        dispatch({
+            type: SET_PLAYER_SONG_REQUEST
+        })
+
+        if(songData){
+            dispatch({
+                type: SET_PLAYER_SONG_SUCCESS,
+                payload: songData
+            })
+        }else{
+            console.error("No song preview url")
+        }
+
+        
+    } catch (error) {
+        dispatch({
+            type: SET_PLAYER_SONG_FAIL,
             payload: error.message
         })
     }

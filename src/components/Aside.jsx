@@ -1,7 +1,7 @@
 import { Avatar, Typography } from '@mui/material';
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 
 const Aside = ({playerOpen}) => {
@@ -9,6 +9,8 @@ const Aside = ({playerOpen}) => {
 const topCharts = useSelector(state => state.topCharts.songs)
 const {loading, success} = useSelector(state => state.topCharts)
 const topFiveSongs = topCharts.slice(0, 5);
+
+const navigate = useNavigate()
 
 const array = [1,2,3,4,5]
 
@@ -84,26 +86,26 @@ const handlePlay = (songPreviewLink) => {
         </p>
     </div>
     <div style={{paddingTop:"5px"}} className='sm-charts-scroll'>
-        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center", paddingLeft:"60px"}}>
+        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center", paddingLeft:"30px"}}>
             {topFiveSongs.map(song => (
                 <div key={`${song.key} aside artist key`}>
                 <Fade right>
-                <div style={{display:"flex", flexDirection:"column", width:"60px", alignItems:"center", justifyContent:"center", width:"80px"}}>
-                    <Avatar sx={{width:"60px", height:"60px", cursor:"pointer"}} src={song.images.background}/>
-                    <Typography                             
-                    style={{
-                        fontFamily:"Roboto, sans-serif",
-                        color:"#fefefe",
-                        fontWeight:"700",
-                        fontSize:"12px", 
-                        display:  "-webkit-box",
-                                    "WebkitLineClamp": "1",
-                                    "WebkitBoxOrient": "vertical",
-                        overflow:"hidden"}}
-                        >
-                            {song.subtitle}
-                    </Typography>
-                </div>
+                        <div style={{display:"flex", flexDirection:"column", width:"60px", alignItems:"center", justifyContent:"center", width:"80px"}}>
+                            <Avatar onClick={() => navigate(`/artist/${song.artists[0].adamid}`)} sx={{width:"60px", height:"60px", cursor:"pointer"}} src={song.images.background}/>
+                            <Typography                             
+                            style={{
+                                fontFamily:"Roboto, sans-serif",
+                                color:"#fefefe",
+                                fontWeight:"700",
+                                fontSize:"12px", 
+                                display:  "-webkit-box",
+                                            "WebkitLineClamp": "1",
+                                            "WebkitBoxOrient": "vertical",
+                                overflow:"hidden"}}
+                                >
+                                    {song.subtitle}
+                            </Typography>
+                        </div>
                 </Fade>
                 </div>
             ))}
