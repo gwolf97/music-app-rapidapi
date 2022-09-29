@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
-import { Link, Button} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setPlayerSong } from '../actions/actions'
 

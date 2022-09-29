@@ -11,15 +11,18 @@ const useAudio = (url) => {
     const toggle = () => setPlaying(!playing);
 
     React.useEffect(() =>{
+      
+      if(url){
       audio.src = url
       setPlaying(true)
-      audio.play()
-     },[url])
+      audio.play()}
+
+     },[url, audio])
   
     useEffect(() => {
         playing ? audio.play() : audio.pause();
       },
-      [playing]
+      [playing, audio]
     );
   
     useEffect(() => {
@@ -28,13 +31,13 @@ const useAudio = (url) => {
           let duration = this.duration
           setCurrentTime(time || 0);
           setSongDuration(duration || 0)
-          setProgressBar(time|| 0)
+          setProgressBar(time || 0)
         })
       audio.addEventListener('ended', () => setPlaying(false));
       return () => {
         audio.removeEventListener('ended', () => setPlaying(false));
       };
-    }, []);
+    }, [audio]);
   
     return [playing, toggle, currentTime, songDuration, progressBar, audio];
   };

@@ -1,14 +1,11 @@
 import React from 'react'
 import { Input } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import { search } from '../actions/actions'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const SearchBar = () => {
 
   const [query, setQuery] = React.useState("")
 
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const params = useParams()
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Typography } from "@mui/material";
 import Volume from "./Volume";
 import useAudio from "./useAudio";
@@ -46,7 +46,7 @@ const Player = ({playerOpen, setPlayerOpen}) => {
 
   return (
     <Fade bottom when={playerOpen}>
-    <div className="player-container" style={{display:"flex", justifyContent:"center", alignItems:"center" ,position:"fixed", bottom:"0", width:"100vw", bottom:"0px", backgroundColor:"rgba(255, 255, 200, 0.05)", backdropFilter: "blur(12px)", borderTopRightRadius:"30px", borderTopLeftRadius:"30px"}}>
+    <div className="player-container" style={{display:"flex", justifyContent:"center", alignItems:"center" ,position:"fixed", bottom:"0", width:"100vw", backgroundColor:"rgba(255, 255, 200, 0.05)", backdropFilter: "blur(12px)", borderTopRightRadius:"30px", borderTopLeftRadius:"30px"}}>
     <div onClick={() => setPlayerOpen(false)} style={{color:"#fefefe", position:"absolute", left:"25px", top:"8px", opacity:"0.5", fontSize:"22px", cursor:"pointer"}}>
         <Fade when={playerOpen}>
          <i className="fa-solid fa-chevron-down"></i>  
