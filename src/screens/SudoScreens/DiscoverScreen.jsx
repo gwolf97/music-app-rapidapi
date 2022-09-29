@@ -8,7 +8,7 @@ import Fade from 'react-reveal/Fade';
 import {SpinnerDotted} from "spinners-react"
 
 
-const Discover = () => {
+const DiscoverScreen = () => {
 
     const [selected, setSelected] = React.useState("POP")
     const [fadeAmount, setFadeAmount] = React.useState(4)
@@ -102,4 +102,4 @@ const Discover = () => {
   )
 }
 
-export default Discover
+export default DiscoverScreen

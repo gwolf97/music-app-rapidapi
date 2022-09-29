@@ -1,10 +1,10 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import SongCard from '../components/SongCard'
+import SongCard from '../../components/SongCard'
 import Fade from "react-reveal/Fade"
 import { useParams } from 'react-router-dom'
-import { search } from '../actions/actions'
+import { search } from '../../actions/actions'
 import {SpinnerDotted} from "spinners-react"
 
 const SearchScreen = () => {

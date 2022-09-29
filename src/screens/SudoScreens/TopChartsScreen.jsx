@@ -6,7 +6,7 @@ import Fade from "react-reveal/Fade"
 import {SpinnerDotted} from "spinners-react"
 
 
-const TopCharts = () => {
+const TopChartsScreen = () => {
 
     const [fadeAmount, setFadeAmount] = React.useState(4)
 
@@ -62,4 +62,4 @@ const TopCharts = () => {
   )
 }
 
-export default TopCharts
+export default TopChartsScreen

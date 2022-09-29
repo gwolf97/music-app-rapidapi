@@ -5,7 +5,7 @@ import ArtistCard from '../../components/ArtistCard'
 import Fade from "react-reveal/Fade"
 import {SpinnerDotted} from "spinners-react"
 
-const TopArtists = () => {
+const TopArtistsScreen = () => {
 
     const [fadeAmount, setFadeAmount] = React.useState(4)
 
@@ -62,4 +62,4 @@ const TopArtists = () => {
   )
 }
 
-export default TopArtists
+export default TopArtistsScreen

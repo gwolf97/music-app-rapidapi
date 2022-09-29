@@ -1,9 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
-import { getArtistDetails } from "../actions/actions"
-import ArtistDetails from '../components/ArtistDetails'
-import ArtistTopSongs from '../components/ArtistTopSongs'
+import { getArtistDetails } from "../../actions/actions"
+import ArtistDetails from '../../components/ArtistDetails'
+import ArtistTopSongs from '../../components/ArtistTopSongs'
 import Fade from "react-reveal/Fade"
 import { DisappearedLoading	 } from 'react-loadinggg';
 
