@@ -1,6 +1,8 @@
 import React from 'react'
 import { Typography, Avatar } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setPlayerSong } from '../actions/actions'
 
 
 const SongDetails = ({song}) => {
@@ -8,6 +10,8 @@ const SongDetails = ({song}) => {
     const [titleSize, setTitleSize] = React.useState("30px")
     const [avatarSize, setAvatarSize] = React.useState("250px")
     const [margin, setMargin] = React.useState("0 20px 30px 0")
+
+    const dispatch = useDispatch()
 
     React.useEffect(() => {
         function handleResize() {
@@ -23,8 +27,14 @@ const SongDetails = ({song}) => {
         window.addEventListener('resize', handleResize)
       },[])
 
-    const handlePlay = () => {
-        console.log("play")
+      const handlePlay = (artist, title, url) => {
+        dispatch(setPlayerSong(
+            {
+                artist: artist,
+                title: title,
+                url: url
+            }
+        ))
     }
 
   return (
@@ -81,7 +91,7 @@ const SongDetails = ({song}) => {
         </Typography>
     </div>
     </div>
-        <div className="play-btn-song-screen" onClick={() => handlePlay(song.hub.actions[1].uri)} style={{padding:"25px", cursor:"pointer", border:"0px solid black", borderRadius:"50%", width:"50px", height:"50px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 50px 0 0px"}}><i style={{ fontSize:"30px", marginLeft:"4px"}} className="fa-solid fa-play"></i></div>
+        <div className="play-btn-song-screen" onClick={() => handlePlay(song.subtitle, song.title, song.hub.actions[1].uri)} style={{padding:"25px", cursor:"pointer", border:"0px solid black", borderRadius:"50%", width:"50px", height:"50px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 50px 0 0px"}}><i style={{ fontSize:"30px", marginLeft:"4px"}} className="fa-solid fa-play"></i></div>
 </>
   )
 }

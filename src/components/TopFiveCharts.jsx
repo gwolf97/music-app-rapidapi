@@ -17,7 +17,7 @@ const navigate = useNavigate()
         <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"10px 10px 5px 10px"}}>
             <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Charts</h3>
             <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>
-                <Link to={`/toptracks/:toptracks`} className={"see-more"}> 
+                <Link to={`/topcharts/:topcharts`} className={"see-more"}> 
                     See More 
                 </Link>   
             </p>

@@ -12,13 +12,20 @@ import ArtistScreen from './ArtistScreen.jsx';
 import SearchScreen from './SearchScreen.jsx';
 import Fade from "react-reveal/Fade"
 import Player from '../components/Player.jsx';
+import { useSelector } from 'react-redux';
 
 
 const MainScreen = ({discover}) => {
 
+    const {song} = useSelector(state => state.playerSong)
+
     const [navOpen, setNavOpen] = React.useState(false)
     const [variant, setVariant] = React.useState(null)
     const [playerOpen, setPlayerOpen] = React.useState(false)
+
+    React.useEffect(() =>{
+      setPlayerOpen(true)
+    },[song.url])
 
     React.useEffect(() => {
         function handleResize() {
@@ -34,9 +41,6 @@ const MainScreen = ({discover}) => {
     const  handleClose = () => {
         setNavOpen(false)
     }
-
-
-    console.log(playerOpen)
 
 
   return (
@@ -61,12 +65,13 @@ const MainScreen = ({discover}) => {
         <div style={{overflow:"scroll"}} className="aside">
             <Aside playerOpen={playerOpen}/>
         </div>
-        <Fade bottom when={!playerOpen}>
+        { song.url && (<><Fade bottom when={!playerOpen}>
           <div onClick={() => setPlayerOpen(true)}  style={{display:"flex", color:"#fefefe", position:"absolute", zIndex:"1", left:"25px", bottom:"8px", fontSize:"22px", alignItems:"center", justifyContent:"center", cursor:"pointer"}}>
             <i style={{ opacity:"0.5"}}  className="fa-solid fa-chevron-up"></i> <p style={{fontSize:"16px", marginLeft:"5px", paddingBottom:"3px",  opacity:"0.5"}}>open</p>
           </div>
         </Fade>
           <Player playerOpen={playerOpen} setPlayerOpen={setPlayerOpen}/>
+          </>)}
     </main>
   )
 }

@@ -22,7 +22,6 @@ const SearchBar = () => {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      console.log('do validate')
       navigate(`/search/${query}`)
       setQuery("")
     }

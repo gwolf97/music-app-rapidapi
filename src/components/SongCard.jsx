@@ -1,10 +1,14 @@
 import React from 'react'
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
 import { Link, Button} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setPlayerSong } from '../actions/actions'
 
 const SongCard = ({song, topCharts}) => {
 
 const [showPlayButton, setShowPlayButton] = React.useState(false)
+
+const dispatch = useDispatch()
 
 const title = song.title
 const subtitle = song.subtitle
@@ -14,7 +18,13 @@ const songId = song.key
 const audioSampleLink = song.hub.actions[1].uri
 
 const handlePlay = () => {
-  
+  dispatch(setPlayerSong(
+    {
+      title: title,
+      artist: subtitle,
+      url: audioSampleLink
+    }
+  ))
 }
 
 

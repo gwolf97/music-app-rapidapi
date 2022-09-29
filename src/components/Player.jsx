@@ -3,10 +3,15 @@ import { Typography } from "@mui/material";
 import Volume from "./Volume";
 import useAudio from "./useAudio";
 import Fade from "react-reveal/Fade"
+import { useSelector } from "react-redux";
 
 
 const Player = ({playerOpen, setPlayerOpen}) => {
-  const [playing, toggle, currentTime, songDuration, progressBar, audio] = useAudio("https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/0a/9c/94/0a9c94fa-b331-f24c-5615-c15405b60120/mzaf_11529453508369085869.plus.aac.ep.m4a");
+
+
+  const {title, artist, url} = useSelector(state => state.playerSong.song)
+  
+  const [playing, toggle, currentTime, songDuration, progressBar, audio] = useAudio(url);
 
   const [volume, setVolume] = React.useState(1)
 
@@ -21,7 +26,6 @@ const Player = ({playerOpen, setPlayerOpen}) => {
   }
 
   const checkWidth = (e) => {
-
     audio.currentTime = e.target.value
   }
 
@@ -54,12 +58,12 @@ const Player = ({playerOpen, setPlayerOpen}) => {
                   display: "-webkit-box",
                   "WebkitLineClamp": "1",
                    "WebkitBoxOrient": "vertical",
-                    overflow:"hidden"}}>Going Crazy </Typography>
+                    overflow:"hidden"}}>{title}</Typography>
             <Typography style={{width:"",textAlign:"center", color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem",
                   display: "-webkit-box",
                   "WebkitLineClamp": "1",
                    "WebkitBoxOrient": "vertical",
-                    overflow:"hidden"}}>Chris Brown</Typography>
+                    overflow:"hidden"}}>{artist}</Typography>
         </div>
     </div>
     <div className="player-controls" style={{width:"100%", margin:"0 20px 0 0", height:"120px", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",}}>

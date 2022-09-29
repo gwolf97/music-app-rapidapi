@@ -15,11 +15,7 @@ const reducer = combineReducers({
 })
 
 const initialState = {
-    playerSong: {
-        title: "Going Crazy",
-        artist: "Chris Brown",
-        url: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/0a/9c/94/0a9c94fa-b331-f24c-5615-c15405b60120/mzaf_11529453508369085869.plus.aac.ep.m4a"
-    }
+    
 }
 
 const middleware = [thunk]

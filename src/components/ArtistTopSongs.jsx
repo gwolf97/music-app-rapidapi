@@ -1,15 +1,23 @@
 import { Typography } from '@mui/material'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setPlayerSong } from '../actions/actions'
 
 const ArtistTopSongs = ({artist}) => {
 
     const songs = Object.values(artist[1].songs)
 
-    const handlePlay = () => {
-        console.log("play")
-    }
+    const dispatch = useDispatch()
 
+    const handlePlay = (artist, title, url) => {
+        dispatch(setPlayerSong(
+            {
+                artist: artist,
+                title: title,
+                url: url
+            }
+        ))
+    }
 
   return (
     <>
@@ -59,7 +67,7 @@ const ArtistTopSongs = ({artist}) => {
             </Typography>
         </div>
         </div>
-            <div onClick={() => handlePlay} style={{padding:"10px", cursor:"pointer",position:"relative", right:"20px", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
+            <div onClick={() => handlePlay(song.attributes.artistName, song.attributes.name, song.attributes.previews[0].url)} style={{padding:"10px", cursor:"pointer",position:"relative", right:"20px", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
     </li>
 </div>
     ))}

@@ -1,21 +1,29 @@
 import { Avatar, Typography } from '@mui/material';
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
+import { setPlayerSong } from '../actions/actions';
 
-const Aside = ({playerOpen}) => {
+const Aside = () => {
 
 const topCharts = useSelector(state => state.topCharts.songs)
 const {loading, success} = useSelector(state => state.topCharts)
 const topFiveSongs = topCharts.slice(0, 5);
 
 const navigate = useNavigate()
+const dispatch = useDispatch()
 
 const array = [1,2,3,4,5]
 
-const handlePlay = (songPreviewLink) => {
-   
+const handlePlay = (artist, title, url) => {
+    dispatch(setPlayerSong(
+        {
+            artist: artist,
+            title: title,
+            url: url
+        }
+    ))
 }
 
   return (
@@ -23,14 +31,14 @@ const handlePlay = (songPreviewLink) => {
     <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"10px 10px 5px 10px"}}>
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Charts</h3>
         <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>
-        <Link to={`/toptracks`} className={"see-more"}> 
+        <Link to={`/topcharts/:topcharts`} className={"see-more"}> 
                 See More 
         </Link>      
         </p>
     </div>
     
     {!loading && success ? (<>
-        <ul style={playerOpen ? {overflow:"scroll", width:"100%", height:"380px"} : {overflow:"scroll", width:"100%", height:"480px"}  }>
+        <ul style={ {overflow:"scroll", width:"100%", height:"480px"}  }>
         {topFiveSongs.map(song => (
             <div key={`${song.key} aside`}>
                 <Fade right>
@@ -71,7 +79,7 @@ const handlePlay = (songPreviewLink) => {
                                 </Link>
                         </Typography>
                     </div>
-                        <div onClick={handlePlay(song.hub.actions[1].uri)} style={{cursor:"pointer", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
+                        <div onClick={() => handlePlay(song.subtitle, song.title, song.hub.actions[1].uri)} style={{cursor:"pointer", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
                 </li>
                 </Fade>
             </div>
@@ -80,13 +88,13 @@ const handlePlay = (songPreviewLink) => {
     <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%", padding:"12px 10px 0 10px"}}>
         <h3 style={{ color:"#fefefe", fontSize:"22px", fontFamily:"sans-serif", fontWeight:"900"}}>Top Artists</h3>
         <p style={{color:"#fefefe", fontSize:"13px", fontFamily:"sans-serif", fontWeight:"700"}}>
-        <Link to={`/topartists`} className={"see-more"}> 
+        <Link to={`/topartists/:topartists`} className={"see-more"}> 
                 See More 
         </Link>   
         </p>
     </div>
-    <div style={{paddingTop:"5px"}} className='sm-charts-scroll'>
-        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center", paddingLeft:"30px"}}>
+    <div style={{paddingTop:"12px"}} className='sm-charts-scroll'>
+        <div style={{display:"flex", width:"100%", height:"100%", justifyContent:"center", alignItems:"center", padding:"0 30px"}}>
             {topFiveSongs.map(song => (
                 <div key={`${song.key} aside artist key`}>
                 <Fade right>

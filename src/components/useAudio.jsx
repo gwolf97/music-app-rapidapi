@@ -9,6 +9,12 @@ const useAudio = (url) => {
     const [progressBar, setProgressBar] = useState(0)
   
     const toggle = () => setPlaying(!playing);
+
+    React.useEffect(() =>{
+      audio.src = url
+      setPlaying(true)
+      audio.play()
+     },[url])
   
     useEffect(() => {
         playing ? audio.play() : audio.pause();
@@ -20,9 +26,9 @@ const useAudio = (url) => {
       audio.addEventListener("timeupdate", function () {
           let time = this.currentTime;
           let duration = this.duration
-          setCurrentTime(time);
-          setSongDuration(duration)
-          setProgressBar(time / duration * 100)
+          setCurrentTime(time || 0);
+          setSongDuration(duration || 0)
+          setProgressBar(time / duration * 100 || 0)
         })
       audio.addEventListener('ended', () => setPlaying(false));
       return () => {
