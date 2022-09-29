@@ -28,7 +28,7 @@ const useAudio = (url) => {
           let duration = this.duration
           setCurrentTime(time || 0);
           setSongDuration(duration || 0)
-          setProgressBar(time / duration * 100 || 0)
+          setProgressBar(time|| 0)
         })
       audio.addEventListener('ended', () => setPlaying(false));
       return () => {

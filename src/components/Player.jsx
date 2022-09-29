@@ -54,7 +54,7 @@ const Player = ({playerOpen, setPlayerOpen}) => {
     </div>
     <div  className="player-title-artist" style={{width:"100%",display:"flex", justifyContent:"center", alignItems:"center"}} >
         <div style={{ height:"100%", width:"90%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-            <Typography style={{ width:"",textAlign:"center" , color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem",
+            <Typography style={{textAlign:"center" , color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem",
                   display: "-webkit-box",
                   "WebkitLineClamp": "1",
                    "WebkitBoxOrient": "vertical",
@@ -75,7 +75,7 @@ const Player = ({playerOpen, setPlayerOpen}) => {
                 type="range"
                 min={0}
                 max={songDuration}
-                step={0.02}
+                step={0.2}
                 value={progressBar}
                 onChange={e => checkWidth(e)}
             />

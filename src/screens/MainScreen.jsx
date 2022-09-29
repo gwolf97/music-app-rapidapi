@@ -24,7 +24,7 @@ const MainScreen = ({discover}) => {
     const [playerOpen, setPlayerOpen] = React.useState(false)
 
     React.useEffect(() =>{
-      setPlayerOpen(true)
+      song.url && setPlayerOpen(true)
     },[song.url])
 
     React.useEffect(() => {
@@ -69,9 +69,10 @@ const MainScreen = ({discover}) => {
           <div onClick={() => setPlayerOpen(true)}  style={{display:"flex", color:"#fefefe", position:"absolute", zIndex:"1", left:"25px", bottom:"8px", fontSize:"22px", alignItems:"center", justifyContent:"center", cursor:"pointer"}}>
             <i style={{ opacity:"0.5"}}  className="fa-solid fa-chevron-up"></i> <p style={{fontSize:"16px", marginLeft:"5px", paddingBottom:"3px",  opacity:"0.5"}}>open</p>
           </div>
-        </Fade>
-          <Player playerOpen={playerOpen} setPlayerOpen={setPlayerOpen}/>
+          </Fade>
           </>)}
+          <Player playerOpen={playerOpen} setPlayerOpen={setPlayerOpen}/>
+
     </main>
   )
 }
