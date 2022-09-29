@@ -31,7 +31,8 @@ const TopArtists = () => {
 
   return (
     <>
-       {!loading && success ? (<> <div className="discover-bg">
+       {!loading && success ? (<>
+        <div className="discover-bg">
           <Fade left>
                 <h3 style={{ color:"#fefefe", fontSize:"30px", fontFamily:"sans-serif", fontWeight:"700"}}>Top Artists Worldwide</h3>
           </Fade>

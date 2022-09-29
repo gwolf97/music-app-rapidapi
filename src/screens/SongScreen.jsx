@@ -16,7 +16,7 @@ const SongScreen = () => {
 
     React.useEffect(() => {
         dispatch(getTrack(params.key))
-    },[params])
+    },[dispatch, params])
 
 
   return (

@@ -18,7 +18,7 @@ const ArtistScreen = () => {
 
     React.useEffect(() => {
         dispatch(getArtistDetails(params.id))
-    },[params])
+    },[dispatch,params])
 
   return (
     <>

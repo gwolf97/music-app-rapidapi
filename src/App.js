@@ -1,5 +1,4 @@
 import React from 'react';
-import {} from '@mui/material';
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import MainScreen from './screens/MainScreen';
 import { useDispatch } from 'react-redux';
@@ -11,7 +10,7 @@ function App() {
 
   React.useEffect(() => {
     dispatch(getTopCharts())
-  }, [])
+  }, [dispatch])
 
   return (
     <Router>

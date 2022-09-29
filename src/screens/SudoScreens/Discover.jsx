@@ -18,7 +18,7 @@ const Discover = () => {
 
     React.useEffect(() => {
      dispatch(getTracksByGenere(selected))
-    }, [selected])
+    }, [dispatch, selected])
 
 
     React.useEffect(() => {
