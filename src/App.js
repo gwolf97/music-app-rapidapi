@@ -16,11 +16,11 @@ function App() {
     <Router>
       <Routes>     
           <Route path="/" element={<MainScreen discover={true} />}/>
-          <Route path="/topcharts/:topcharts" element={<MainScreen discover={false} />}/>
-          <Route path="/topartists/:artists" element={<MainScreen discover={false} />}/>
-          <Route path="/song/:key" element={<MainScreen discover={false} />}/>
-          <Route path="/artist/:id" element={<MainScreen discover={false} />}/>
-          <Route path="/search/:search" element={<MainScreen discover={false} />}/>
+          <Route path="/topcharts/:topcharts" element={<MainScreen/>}/>
+          <Route path="/topartists/:artists" element={<MainScreen/>}/>
+          <Route path="/song/:key" element={<MainScreen/>}/>
+          <Route path="/artist/:id" element={<MainScreen/>}/>
+          <Route path="/search/:search" element={<MainScreen/>}/>
       </Routes>
     </Router>
   );

@@ -53,10 +53,10 @@ const navigate = useNavigate()
                                 sx={{width:"11rem", height:"11rem", cursor:"pointer"}} 
                                 src={song.images.background}/>
 
-                                <Typography                             
-                                style={{fontFamily:"Roboto, sans-serif",color:"#fefefe",fontWeight:"700",fontSize:"14px", display:  "-webkit-box","WebkitLineClamp": "1","WebkitBoxOrient": "vertical",overflow:"hidden"}}
-                                >                           
+                                <Typography style={{fontFamily:"Roboto, sans-serif",color:"#fefefe",fontWeight:"700",fontSize:"14px", display:  "-webkit-box","WebkitLineClamp": "1","WebkitBoxOrient": "vertical",overflow:"hidden"}}> 
+
                                         {song.subtitle}
+                                        
                                 </Typography>
                             </div>
                         </Fade>
