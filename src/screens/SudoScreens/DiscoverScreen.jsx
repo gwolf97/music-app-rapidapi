@@ -17,17 +17,15 @@ const DiscoverScreen = () => {
     const dispatch = useDispatch()
     const {genreTracks, loading, success} = useSelector(state => state.genre)
 
-    //Get tracks by selected genre
     React.useEffect(() => {
      dispatch(getTracksByGenere(selected))
     }, [ dispatch, selected])
 
-    //Scroll to top when screen loads
+
     React.useEffect(() => {
         document.getElementById("main").scrollTo(0, 0)
       }, [])
 
-    //Breakpoints for fade effect on cards
     React.useEffect(() => {
         function handleResize() {
             window.innerWidth < 1280 ? setFadeAmount(0) : setFadeAmount(4)
@@ -36,8 +34,7 @@ const DiscoverScreen = () => {
         window.addEventListener('resize', handleResize)
       },[])
 
-    // Filtering for songs that have all required elements &
-    // assigning fade effect to certain cards depending on breakpoints
+
     const filteredList = genreTracks.filter(song => 
                                             song.images.coverart  
                                             && song.artists[0] 

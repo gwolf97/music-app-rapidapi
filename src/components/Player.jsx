@@ -54,7 +54,7 @@ const Player = ({playerOpen, setPlayerOpen}) => {
         </div>
         <div  className="player-title-artist" >
             <div className="player-titles">
-                <Typography style={{textAlign:"center" , color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem", display: "-webkit-box", "WebkitLineClamp": "1", "WebkitBoxOrient": "vertical", overflow:"hidden"}}>
+                <Typography style={{textAlign:"center" , color:"#fefefe", fontFamily:"Roboto, sans-serif", fontWeight:"500", fontSize:"1.1rem", display: "-webkit-box", "WebkitLineClamp": "1", "WebkitBoxOrient":"vertical", overflow:"hidden"}}>
 
                   {title}
 

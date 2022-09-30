@@ -23,13 +23,9 @@ const MainScreen = ({discover}) => {
     const [variant, setVariant] = useState(null)
     const [playerOpen, setPlayerOpen] = useState(false)
 
-    //Opens player when song is selected
-
     useEffect(() =>{
       song.url && setPlayerOpen(true)
     },[song.url])
-
-    //Navbar breakpoints
 
     useEffect(() => {
         function handleResize() {

@@ -13,10 +13,9 @@ const SongDetails = ({song}) => {
 
     const dispatch = useDispatch()
 
-    //Breakpoints for Margin, Title, and Avatar
     React.useEffect(() => {
         function handleResize() {
-            window.innerWidth <= 500 ? setMargin("10px 20px 30px 0") : setMargin("0 20px 0px 0")
+            window.innerWidth <= 500 ? setMargin("20px 20px 30px 0") : setMargin("0 20px 0px 0")
             window.innerWidth < 769 && setTitleSize("20px")
             window.innerWidth >= 769 && setTitleSize("25px")
             window.innerWidth >= 1280 && setTitleSize("35px")

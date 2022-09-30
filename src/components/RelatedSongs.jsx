@@ -15,7 +15,6 @@ const RelatedSongs = ({songKey}) => {
                                     && song.hub.actions 
                                     && song.subtitle )
     
-    //Get songs related to the song being viewed
     React.useEffect(() => {
         dispatch(getRelatedTracks(songKey))
     }, [dispatch, songKey])

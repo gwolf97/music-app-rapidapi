@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade';
 import { setPlayerSong } from '../actions/actions';
 import AsideLoader from './AsideLoader';
 
-const Aside = () => {
+const Aside = ({playerOpen}) => {
 
 const topCharts = useSelector(state => state.topCharts.songs)
 const {loading, success} = useSelector(state => state.topCharts)
@@ -71,21 +71,25 @@ const handlePlay = (artist, title, url) => {
             </div>
         ))}
     </ul>
-    <div className='aside-top-artists-see-more-div' >
-        <h3>Top Artists</h3>
-        <p>
-        <Link to={`/topartists/:topartists`} className={"see-more"}> 
-                See More 
-        </Link>   
-        </p>
-    </div>
+    <Fade when={!playerOpen}>
+        <div className='aside-top-artists-see-more-div' >
+            <h3>Top Artists</h3>
+            <p>
+            <Link to={`/topartists/:topartists`} className={"see-more"}> 
+                    See More 
+            </Link>   
+            </p>
+        </div>
+    </Fade>
     <div className='sm-charts-scroll sm-charts-scroll-aside'>
         <div className='top-artists-aside-container' >
             {topFiveSongs.map(song => (
                 <div  key={`${song.key} aside artist key`}>
-                <Fade right>
+                <Fade right when={!playerOpen}>
                         <div onClick={() => navigate(`/artist/${song.artists[0].adamid}`)}  
-                             className='top-artists-aside-avatar-title' >
+                             className='top-artists-aside-avatar-title'
+                             style={playerOpen ? "" : {zIndex:"1"}}
+                             >
                             <Avatar 
                                     sx={{width:"60px", height:"60px"}} 
                                     src={song.images.background}/>

@@ -510,7 +510,6 @@ code {
   align-items: center;
   justify-content: center;
   width: 80px;
-  z-index: 1;
   cursor: pointer;
 }
 
@@ -720,8 +719,8 @@ fieldset{
 }
 
 .player-title-artist{
-  margin-left: -20px;
-  width: 100%;
+  width: 90%;
+  margin-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -824,8 +823,8 @@ fieldset{
   }
 
   .player-container{
-    height: 160px;
-    padding: 10px 40px;
+    height: 180px;
+    padding: 0 40px 10px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -834,7 +833,7 @@ fieldset{
   }
 
   .player-title-artist{
-    margin-left: -20px;
+    margin: 0px 0 30px -20px;
   }
 
 
