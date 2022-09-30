@@ -25,8 +25,16 @@ code {
     monospace;
 }
 
+.loading-div{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 /********************************** *********** ***********************************/
-/********************************** Main Screen ***********************************/
+/********************************** main screen ***********************************/
 /********************************** *********** ***********************************/
 
 .container {
@@ -78,7 +86,7 @@ code {
 }
 
 /********************************** *************** ***********************************/
-/********************************** Discover Screen ***********************************/
+/********************************** discover screen ***********************************/
 /********************************** *************** ***********************************/
 
 .discover-bg{
@@ -100,22 +108,43 @@ code {
   font-weight:700;
 }
 
-.song-title-link, .see-more{
-  text-decoration:none;
-  color:#fefefe; 
+.top-five-discover-title-one{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 10px 5px 10px;
 }
 
-.song-title-link:hover{
-  color: #be83f6;
+.top-five-discover-title-two{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 10px 0px 10px;
 }
 
-.see-more:hover{
-  text-decoration: underline;
+.top-five-discover-title-one h3,
+  .top-five-discover-title-two h3{
+  color: #fefefe;
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 900;
 }
 
-fieldset{
-  border: none !important;
-  outline: none !important;
+.top-five-discover-title-one p,
+.top-five-discover-title-two p{
+  color: #fefefe;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+.top-five-cards{
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  width: 105rem;
 }
 
 .sm-charts-scroll{
@@ -123,24 +152,69 @@ fieldset{
   overflow:scroll;
 }
 
+.sm-charts-scroll-one{
+  height: 420px;
+}
+
 .sm-charts-scroll::-webkit-scrollbar{
   display: none;
 }
 
-.nav-link{
-  text-decoration:none;
-  color:#9ca4b0;
+.top-five-artists-avatar-container{
+  display:flex;
+  width:40rem;
+  height:250px;
+  justify-content:space-between;
+  align-items: flex-start;
+  padding-top:20px;
+  padding-left:0;
 }
 
-.nav-link:hover{
-  color:#4bb7d4;
+.top-five-artists-avatar-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  margin: 0 60px;
 }
 
-.x{
-  display: none;
+/********************************** *********** ***********************************/
+/********************************** song screen ***********************************/
+/********************************** *********** ***********************************/
+
+.song-screen-container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-.details-div{
+.related-songs-container{
+  margin-top: 180px;
+  margin-bottom: 60px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+.play-btn-song-screen{
+  color: black;
+  background-color: #fefefe;
+  padding: 25px;
+  cursor: pointer;
+  border: 0px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 50px 0 0px;
+}
+
+.song-details-div{
   padding-top: 160px;
   display: flex;
   justify-content: space-between;
@@ -161,9 +235,85 @@ fieldset{
   font-family:sans-serif;
 }
 
-.play-btn-song-screen{
-  color: black;
-  background-color: #fefefe;
+
+.play-btn-song-screen i{
+  font-size:30px;
+  margin-left:4px;
+}
+
+.song-screen-avatar-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-screen-titles{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.related-songs-div{
+  margin:0px 0;
+  padding:0 10px;
+}
+
+/********************************** ************* ***********************************/
+/********************************** artist screen ***********************************/
+/********************************** ************* ***********************************/
+
+.artist-screen-container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.artist-top-songs-container{
+  margin-top: 80px;
+  margin-bottom: 60px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+.artist-details-avatar-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artist-details-title-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.artist-screen-top-songs-container{
+  margin:0px 0;
+  padding:0 10px;
+}
+
+.artist-screen-track-details{
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: #fefefe;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 10px 40px;
+}
+
+.track-list-item{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 95px;
+  width: 100%;
 }
 
 .track-list-item:hover{
@@ -172,12 +322,36 @@ fieldset{
   border-radius: 10px;
 }
 
-.related-songs-container{
-  margin-top: 180px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
+.song-title-link, .see-more{
+  text-decoration:none;
+  color:#fefefe; 
+}
+
+.song-title-link:hover{
+  color: #be83f6;
+}
+
+.see-more:hover{
+  text-decoration: underline;
+}
+
+fieldset{
+  border: none !important;
+  outline: none !important;
+}
+
+
+.nav-link{
+  text-decoration:none;
+  color:#9ca4b0;
+}
+
+.nav-link:hover{
+  color:#4bb7d4;
+}
+
+.x{
+  display: none;
 }
 
 .fadeIn {
@@ -192,6 +366,10 @@ fieldset{
   opacity: 1;
   transform: translate3d(0, 0, 0); /* ADDED - move y to 0 on hover */
 }
+
+/********************************** ****** ***********************************/
+/********************************** Player ***********************************/
+/********************************** ****** ***********************************/
 
 .open-player-div{
   display: flex;
@@ -232,13 +410,7 @@ fieldset{
   padding-top: 10px;
 }
 
-.loading-div{
-  width:100%;
-  height:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
+
 
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
@@ -257,7 +429,7 @@ fieldset{
 @media only screen and (min-width: 0px) and (max-width: 500px) {
 
   .song-avatar-title-container, .artist-avatar-title-container
-  , .details-div{
+  , .song-details-div{
     flex-direction: column;
   }
 

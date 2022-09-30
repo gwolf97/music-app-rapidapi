@@ -5,8 +5,7 @@ import { getArtistDetails } from "../../actions/actions"
 import ArtistDetails from '../../components/ArtistDetails'
 import ArtistTopSongs from '../../components/ArtistTopSongs'
 import Fade from "react-reveal/Fade"
-import { DisappearedLoading	 } from 'react-loadinggg';
-
+import Loader from "../../components/Loader"
 
 
 const ArtistScreen = () => {
@@ -23,8 +22,7 @@ const ArtistScreen = () => {
   return (
     <>
     {!loading && success ? (
-    <div className="song-screen-container" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                {loading && <DisappearedLoading size={"large"}/>}
+    <div className="artist-screen-container">
                 {!loading && success && (
                     <Fade bottom>
                         <div className="details-div">
@@ -32,7 +30,7 @@ const ArtistScreen = () => {
                         </div>
                     </Fade>
                             )}
-        <ul className="related-songs-container" style={{marginTop:"250px", width:"100%", display:"flex", flexDirection:"column", justifyContent:"start" }}>
+        <ul className="artist-top-songs-container">
              {!loading && success && (
                 <Fade bottom>
                     <ArtistTopSongs artist={artist} />
@@ -40,11 +38,7 @@ const ArtistScreen = () => {
              )}
         </ul>
     </div>
-    ) : (
-    <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
-        <DisappearedLoading color={"#fefefe"} size={"large"}/> 
-    </div>
-    )}
+    ) : (<Loader wave={true}/>)}
     </>
   )
 }

@@ -8,13 +8,17 @@ const RelatedSongs = ({songKey}) => {
 
     const dispatch = useDispatch()
     const relatedSongs = useSelector(state => state.relatedTracks.songs)
-
-    const filteredList = relatedSongs.filter(song => song.images)
+    const filteredList = relatedSongs.filter(song => 
+                                    song.images.coverart  
+                                    && song.artists[0] 
+                                    && song.key 
+                                    && song.hub.actions 
+                                    && song.subtitle )
     
-
+    //Get songs related to the song being viewed
     React.useEffect(() => {
         dispatch(getRelatedTracks(songKey))
-    }, [])
+    }, [dispatch, songKey])
 
     const handlePlay = (artist, title, url) => {
         dispatch(setPlayerSong(
@@ -40,9 +44,9 @@ const RelatedSongs = ({songKey}) => {
         Related Songs:
     </Typography>
     {filteredList.map(song => (
-    <div key={`${song.key} related`} style={{margin:"0px 0", padding:"0 10px"}}>
+    <div key={`${song.key} related`} className="related-songs-div">
 
-    <li className="track-list-item" style={{display:"flex", justifyContent:"space-around", alignItems:"center", height:"95px", width:"100%",}}>
+    <li className="track-list-item" >
         <div style={{width:"100%", display:"flex", justifyContent:"start", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif", fontSize:"16px", padding:"10px 40px"}}>
             <div style={{width:"20px"}}>
                 {filteredList.indexOf(song) + 1}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography, Avatar } from '@mui/material'
 
-const SongDetails = ({artist, artistId}) => {
+const SongDetails = ({artist}) => {
 
     const [titleSize, setTitleSize] = React.useState("30px")
     const [avatarSize, setAvatarSize] = React.useState("250px")
@@ -10,12 +10,13 @@ const SongDetails = ({artist, artistId}) => {
 
     React.useEffect(() => {
         function handleResize() {
-            window.innerWidth < 769 && setAvatarSize("200px")
-            window.innerWidth <= 500 ? setMargin("10px 20px 30px 0") : setMargin("0 40px 0px 0")
+            window.innerWidth <= 500 ? setMargin("20px 16px 30px 0") : setMargin("30px 40px 0 0")
+            window.innerWidth < 769 && setTitleSize("25px")
             window.innerWidth >= 769 && setTitleSize("35px")
+            window.innerWidth >= 1280 && setTitleSize("45px")
+            window.innerWidth < 769 && setAvatarSize("200px")
             window.innerWidth >= 769 && setAvatarSize("250px")
-          window.innerWidth >= 1280 ? setTitleSize("45px") : setTitleSize("35px")
-          window.innerWidth >= 1280 && setAvatarSize("300px")
+            window.innerWidth >= 1280 && setAvatarSize("300px")
     }
         handleResize()
         window.addEventListener('resize', handleResize)
@@ -25,10 +26,14 @@ const SongDetails = ({artist, artistId}) => {
   return (
     <>
     <div className="artist-avatar-title-container" >
-        <div style={{margin: margin, height:avatarSize, width:avatarSize, display:"flex", justifyContent:"center", alignItems:"center"}}>
-            <Avatar className={"song-details-avatar"} style={{ width: avatarSize, height: avatarSize, border:"2px solid #FEFEFE", boxShadow: "5px 5px 30px 1px rgba(0,0,0,1)"}} src={artist[0].avatar} alt="" />
+        <div style={{margin: margin, height:avatarSize, width:avatarSize}}
+            className="artist-details-avatar-div"
+        >
+        <Avatar style={{ width: avatarSize, height: avatarSize, border:"2px solid #FEFEFE", boxShadow: "5px 5px 30px 1px rgba(0,0,0,1)"}} 
+            src={artist[0].avatar} 
+            alt="" />
         </div>
-        <div style={{ display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", width:"100%"}}>
+        <div className='artist-details-title-div'>
             <Typography
                 style={{
                 height:"100%",
