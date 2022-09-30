@@ -48,11 +48,11 @@ const RelatedSongs = ({songKey}) => {
 
     <li className="track-list-item" >
         <div className="related-songs-track-details">
-            <div style={{width:"20px"}}>
+            <div className="related-songs-index">
                 {filteredList.indexOf(song) + 1}
             </div>
-            <img style={{width:"75px", marginLeft:"20px", boxShadow: "0px 0px 10px 1px rgba(0,0,0,1)"}} src={song.images.coverart} alt="" />
-        <div style={{width:"20em", marginLeft:"10px"}}>
+            <img src={song.images.coverart} alt="" />
+        <div className='related-songs-titles'>
             <Typography
                 style={{
                 fontFamily:"Roboto, sans-serif",
@@ -83,7 +83,11 @@ const RelatedSongs = ({songKey}) => {
             </Typography>
         </div>
         </div>
-            <div onClick={() => handlePlay(song.subtitle, song.title, song.hub.actions[1].uri)} style={{padding:"10px", cursor:"pointer",position:"relative", right:"20px", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
+            <div 
+            onClick={() => handlePlay(song.subtitle, song.title, song.hub.actions[1].uri)} 
+            className="sm-play-btn-div">
+                <i className="fa-solid fa-play"></i>
+            </div>
     </li>
 </div>
     ))}

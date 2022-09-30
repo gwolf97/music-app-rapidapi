@@ -28,10 +28,10 @@ const ArtistTopSongs = ({artist}) => {
         <div key={`${song.id} top songs`} className="artist-screen-top-songs-container">
             <li className="track-list-item">
                 <div className='artist-screen-track-details'>
-                    <div style={{width:"75px", fontSize:"16px", marginLeft:"-10px"}} >
+                    <div className='artist-screen-top-tracks-index' >
                         {songs.indexOf(song) + 1}
                     </div>
-                <div style={{width:"20em", marginLeft:"-5px"}}>
+                <div className="artist-screen-top-tracks-titles">
                     <Typography
                         style={{
                         fontFamily:"Roboto, sans-serif",
@@ -58,7 +58,11 @@ const ArtistTopSongs = ({artist}) => {
                     </Typography>
                 </div>
                 </div>
-                    <div onClick={() => handlePlay(song.attributes.artistName, song.attributes.name, song.attributes.previews[0].url)} style={{padding:"10px", cursor:"pointer",position:"relative", right:"20px", backgroundColor:"#fefefe", border:"0px solid black", borderRadius:"50%", width:"28px", height:"28px", display:"flex", justifyContent:"center", alignItems:"center", margin:"0 10px 0 0px"}}><i style={{color:"#000", fontSize:"14px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
+                    <div 
+                    onClick={() => handlePlay(song.attributes.artistName, song.attributes.name, song.attributes.previews[0].url)} 
+                    className="sm-play-btn-div">
+                        <i className="fa-solid fa-play"></i>
+                    </div>
             </li>
         </div>
     ))}

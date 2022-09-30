@@ -3,17 +3,20 @@ import { Grid } from '@mui/material'
 import { useSelector } from 'react-redux'
 import ArtistCard from '../../components/ArtistCard'
 import Fade from "react-reveal/Fade"
-import {SpinnerDotted} from "spinners-react"
+import Loader from '../../components/Loader'
 
 const TopArtistsScreen = () => {
 
     const [fadeAmount, setFadeAmount] = React.useState(4)
 
-
     const {songs, loading, success} = useSelector(state => state.topCharts)
 
-    const filteredList = songs.filter(song => song.images)
-    
+    const filteredList = songs.filter(song => 
+                                      song.images.coverart  
+                                      && song.artists[0] 
+                                      && song.key 
+                                      && song.hub.actions 
+                                      && song.subtitle)
     const firstSongs = filteredList.slice(0, fadeAmount)
     const remainingSongs = filteredList.slice(fadeAmount)
 
@@ -34,7 +37,7 @@ const TopArtistsScreen = () => {
        {!loading && success ? (<>
         <div className="discover-bg">
           <Fade left>
-                <h3 style={{ color:"#fefefe", fontSize:"30px", fontFamily:"sans-serif", fontWeight:"700"}}>Top Artists Worldwide</h3>
+                <h3>Top Artists Worldwide</h3>
           </Fade>
         </div>
         <div>
@@ -53,11 +56,7 @@ const TopArtistsScreen = () => {
                 ))}
             </Grid>
         </div>
-        </>) : (
-              <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                  <SpinnerDotted color={"#fefefe"} size={100}/> 
-              </div>
-        )}
+        </>) : (<Loader/>)}
     </>
   )
 }

@@ -10,8 +10,6 @@ const subtitle = song.subtitle
 const background = song.images.background
 const artistId = song.artists[0].adamid
 
-
-
   return (
   <Card 
     style={topCharts 

@@ -49,8 +49,10 @@ const handlePlay = () => {
       /> 
     {showPlayButton && (
       <>
-        <div style={{height:"300px", width:"300px", backgroundColor:"black", opacity:"0.5", cursor:"pointer", position:"absolute"}}></div>
-        <div style={{position:"absolute", cursor:"pointer", backgroundColor:"#fefefe", opacity:"0.7", border:"0px solid black", borderRadius:"50%", width:"40px", height:"40px", display:"flex", justifyContent:"center", alignItems:"center"}}><i style={{color:"#000", fontSize:"18px", marginLeft:"2px"}} className="fa-solid fa-play"></i></div>
+        <div className="song-card-overlay"></div>
+        <div className='song-card-play-btn'>
+          <i className="fa-solid fa-play"></i>
+        </div>
       </>
     )}
     </CardActionArea>

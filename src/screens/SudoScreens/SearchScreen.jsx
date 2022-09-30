@@ -5,7 +5,7 @@ import SongCard from '../../components/SongCard'
 import Fade from "react-reveal/Fade"
 import { useParams } from 'react-router-dom'
 import { search } from '../../actions/actions'
-import {SpinnerDotted} from "spinners-react"
+import Loader from '../../components/Loader'
 
 const SearchScreen = () => {
 
@@ -23,8 +23,12 @@ const SearchScreen = () => {
 
     const songs = !loading && success ? searchResults.tracks.hits : []
 
-    const filteredList = songs.filter(song => song.track.images)
-
+    const filteredList = songs.filter(song => 
+                                        song.track.images.coverart  
+                                        && song.track.artists[0] 
+                                        && song.track.key 
+                                        && song.track.hub.actions 
+                                        && song.track.subtitle)
     const firstSongs = filteredList.slice(0, fadeAmount)
     const remainingSongs = filteredList.slice(fadeAmount)
 
@@ -46,7 +50,7 @@ const SearchScreen = () => {
         <>
             <div className="discover-bg">
             <Fade left>
-                    <h3 style={{ color:"#fefefe", fontSize:"30px", fontFamily:"sans-serif", fontWeight:"700"}}>Results for "{params.search}"</h3>
+                    <h3>Results for "{params.search}"</h3>
             </Fade>
             </div>
             <div>
@@ -66,11 +70,7 @@ const SearchScreen = () => {
                 </Grid>
             </div>
         </>
-        ) : (
-        <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
-            <SpinnerDotted color={"#fefefe"} size={100}/> 
-        </div>
-        )}
+        ) : (<Loader/>)}
     </>
   )
 }

@@ -262,12 +262,27 @@ code {
 .related-songs-track-details{
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   color: #fefefe;
   font-family: sans-serif;
   font-size: 16px;
   padding: 10px 40px;
+}
+
+.related-songs-index{
+  width: 20px;
+}
+
+.track-list-item img{
+  width: 75px;
+  margin-left: 20px;
+  box-shadow:  0px 0px 10px 1px rgba(0,0,0,1);
+}
+
+.related-songs-titles{
+  width: 20em;
+  margin-left: 10px;
 }
 
 /********************************** ************* ***********************************/
@@ -311,12 +326,78 @@ code {
 .artist-screen-track-details{
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   color: #fefefe;
   font-family: sans-serif;
   font-size: 16px;
   padding: 10px 40px;
+}
+
+.artist-screen-top-tracks-index{
+  width: 75px;
+  font-size: 16px;
+  margin-left: -10px;
+}
+
+.artist-screen-top-tracks-titles{
+  width:20em;
+  margin-left:-5px;
+}
+
+
+/** components & misc **/
+
+.song-card-overlay{
+  height: 300px;
+  width: 300px;
+  background-color: black;
+  opacity: 0.5;
+  cursor: pointer;
+  position: absolute;
+}
+
+.song-card-play-btn{
+  position: absolute;
+  cursor: pointer;
+  background-color: #fefefe;
+  opacity: 0.7;
+  border: 0px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-card-play-btn i {
+  color: #000;
+  font-size: 18px;
+  margin-left: 2px;
+}
+
+
+.sm-play-btn-div{
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  right: 20px;
+  background-color: #fefefe;
+  border: 0px solid black;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px 0 0px;
+}
+
+.sm-play-btn-div i {
+  color: #000;
+  font-size: 14px;
+  margin-left: 2px;
 }
 
 .track-list-item{
