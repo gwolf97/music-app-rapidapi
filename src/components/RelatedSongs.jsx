@@ -47,7 +47,7 @@ const RelatedSongs = ({songKey}) => {
     <div key={`${song.key} related`} className="related-songs-div">
 
     <li className="track-list-item" >
-        <div style={{width:"100%", display:"flex", justifyContent:"start", alignItems:"center", color:"#fefefe", fontFamily:"sans-serif", fontSize:"16px", padding:"10px 40px"}}>
+        <div className="related-songs-track-details">
             <div style={{width:"20px"}}>
                 {filteredList.indexOf(song) + 1}
             </div>
