@@ -8,12 +8,8 @@ const RelatedSongs = ({songKey}) => {
 
     const dispatch = useDispatch()
     const relatedSongs = useSelector(state => state.relatedTracks.songs)
-    const filteredList = relatedSongs.filter(song => 
-                                    song.images.coverart  
-                                    && song.artists[0] 
-                                    && song.key 
-                                    && song.hub.actions 
-                                    && song.subtitle )
+
+    const filteredList = relatedSongs.filter(song => Object.keys(song).length === 12)
     
     React.useEffect(() => {
         dispatch(getRelatedTracks(songKey))

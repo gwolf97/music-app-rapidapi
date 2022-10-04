@@ -34,7 +34,7 @@ const DiscoverScreen = () => {
         window.addEventListener('resize', handleResize)
       },[])
 
-
+    
     const filteredList = genreTracks.filter(song => 
                                             song.images.coverart  
                                             && song.artists[0] 
