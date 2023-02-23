@@ -12,12 +12,8 @@ const TopChartsScreen = () => {
 
     const {songs, loading, success} = useSelector(state => state.topCharts)
 
-    const filteredList = songs.filter(song => 
-                                      song.images.coverart  
-                                      && song.artists[0] 
-                                      && song.key 
-                                      && song.hub.actions 
-                                      && song.subtitle)
+    const filteredList = songs.filter(song => Object.keys(song).length === 12);
+
     const firstSongs = filteredList.slice(0, fadeAmount)
     const remainingSongs = filteredList.slice(fadeAmount)
 

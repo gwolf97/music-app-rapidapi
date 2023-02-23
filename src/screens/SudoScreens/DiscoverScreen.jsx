@@ -35,12 +35,8 @@ const DiscoverScreen = () => {
       },[])
 
     
-    const filteredList = genreTracks.filter(song => 
-                                            song.images.coverart  
-                                            && song.artists[0] 
-                                            && song.key 
-                                            && song.hub.actions 
-                                            && song.subtitle )
+    const filteredList = genreTracks.filter(song => Object.keys(song).length === 12);
+
     const firstSongs = filteredList.slice(0, fadeAmount)
     const remainingSongs = filteredList.slice(fadeAmount)
 

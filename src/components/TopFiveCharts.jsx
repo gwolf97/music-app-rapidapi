@@ -8,7 +8,9 @@ import Fade from 'react-reveal/Fade';
 const TopFiveCharts = () => {
 
 const topCharts = useSelector(state => state.topCharts.songs)
-const topFiveSongs = topCharts.slice(0, 5);
+const filteredList = topCharts.filter(song => Object.keys(song).length === 12);
+
+const topFiveSongs = filteredList.slice(0, 5);
 
 const navigate = useNavigate()
 
