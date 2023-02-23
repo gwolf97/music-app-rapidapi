@@ -23,7 +23,7 @@ const SearchScreen = () => {
 
     const songs = !loading && success ? searchResults.tracks.hits : []
 
-    const filteredList = songs.filter(song => Object.keys(song).length === 12);
+    const filteredList = songs.filter(song => Object.keys(song.track).length === 10);
 
     const firstSongs = filteredList.slice(0, fadeAmount)
     const remainingSongs = filteredList.slice(fadeAmount)
