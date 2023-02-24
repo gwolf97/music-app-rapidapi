@@ -72,9 +72,9 @@ const RelatedSongs = ({songKey}) => {
                             "WebkitBoxOrient": "vertical",
                 overflow:"hidden"}} >
                 
-                    <Link to={`/artist/${song.artists[0].adamid}`} className={"song-title-link"} >
+                    <div className={"song-title-link artist"} >
                         {song.subtitle}
-                    </Link>
+                    </div>
             </Typography>
         </div>
         </div>

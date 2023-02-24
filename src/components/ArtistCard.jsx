@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
-import { Link, useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
 const ArtistCard = ({song, topCharts}) => {
 
@@ -41,9 +41,9 @@ const artistId = song.artists[0].adamid
                     "WebkitLineClamp": "2",
                     "WebkitBoxOrient": "vertical",
           overflow:"hidden"}} >
-              <Link to={`/artist/${artistId}`} className={"song-title-link"} >
+              <div className={"song-title-link artist"} >
                 {subtitle}
-              </Link>
+              </div>
          </Typography>
     </CardContent>
   </Card>

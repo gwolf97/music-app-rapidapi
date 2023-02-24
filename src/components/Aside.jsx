@@ -55,11 +55,11 @@ const handlePlay = (artist, title, url) => {
                                 </Link>        
                         </Typography>
                         <Typography style={{fontFamily:"Roboto, sans-serif",fontWeight:"700",fontSize:"14px", display:  "-webkit-box","WebkitLineClamp": "1","WebkitBoxOrient": "vertical",overflow:"hidden",color:"#fefefe"}} >                            
-                                <Link to={`/artist/${song.artists[0].adamid}`} className={"song-title-link"} >
+                                <div className={"song-title-link artist"} >
 
                                     {song.subtitle}
 
-                                </Link>
+                                </div>
                         </Typography>
                     </div>
                         <div onClick={() => handlePlay(song.subtitle, song.title, song.hub.actions[1].uri)} 
@@ -84,14 +84,14 @@ const handlePlay = (artist, title, url) => {
     <div className='sm-charts-scroll sm-charts-scroll-aside'>
         <div className='top-artists-aside-container' >
             {topFiveSongs.map(song => (
-                <div  key={`${song.key} aside artist key`}>
+                <div classname="avatar-text-container"  key={`${song.key} aside artist key`}>
                 <Fade right when={!playerOpen}>
-                        <div onClick={() => navigate(`/artist/${song.artists[0].adamid}`)}  
+                        <div 
                              className='top-artists-aside-avatar-title'
                              style={playerOpen ? "" : {zIndex:"1"}}
                              >
                             <Avatar 
-                                    sx={{width:"60px", height:"60px"}} 
+                                    sx={{width:"100%", maxWidth:"60px", height:"60px"}} 
                                     src={song.images.background}/>
 
                             <Typography                             

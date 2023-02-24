@@ -13,7 +13,6 @@ const dispatch = useDispatch()
 const title = song.title
 const subtitle = song.subtitle
 const coverart = song.images.coverart
-const artistId = song.artists[0].adamid
 const songId = song.key
 const audioSampleLink = song.hub.actions[1].uri
 
@@ -85,9 +84,9 @@ const handlePlay = () => {
                     "WebkitBoxOrient": "vertical",
           overflow:"hidden"}} >
           
-              <Link to={`/artist/${artistId}`} className={"song-title-link"} >
+              <div className={"artisit"} >
                 {subtitle}
-              </Link>
+              </div>
          </Typography>
     </CardContent>
   </Card>

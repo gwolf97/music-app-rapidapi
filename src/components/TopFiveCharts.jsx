@@ -51,7 +51,6 @@ const navigate = useNavigate()
                         <Fade right>
                             <div className="top-five-artists-avatar-title">
                                 <Avatar 
-                                onClick={() => navigate(`/artist/${song.artists[0].adamid}`)} 
                                 sx={{width:"11rem", height:"11rem", cursor:"pointer"}} 
                                 src={song.images.background}/>
 

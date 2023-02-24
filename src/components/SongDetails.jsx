@@ -1,6 +1,5 @@
 import React from 'react'
 import { Typography, Avatar } from '@mui/material'
-import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setPlayerSong } from '../actions/actions'
 
@@ -54,9 +53,9 @@ const SongDetails = ({song}) => {
             </Typography>
             <Typography style={{height:"100%",fontFamily:"Roboto, sans-serif",fontWeight:"700",fontSize:"1em", display:  "-webkit-box", "WebkitLineClamp": "3", "WebkitBoxOrient": "vertical",}} >
 
-                <Link to={`/artist/${song.artists[0].adamid}`} className={"song-title-link"} >
+                <div className={"song-title-link artist"} >
                     {song.subtitle}
-                </Link>
+                </div>
 
             </Typography>
             <Typography style={{ position:"relative", height:"100%", fontFamily:"Roboto, sans-serif", fontWeight:"400", fontSize:"16px",  width:"150px", display:  "-webkit-box", "WebkitLineClamp": "2", "WebkitBoxOrient": "vertical",}}>
